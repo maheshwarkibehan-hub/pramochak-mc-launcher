@@ -1900,7 +1900,18 @@ if (window.api) {
 if (window.api) {
   // First load launcher config from disk
   window.api.getLauncherConfig().then(config => {
-    launcherConfig = config;
+    if (config) {
+      launcherConfig = config;
+    }
+
+    // Immediately initialize profiles and populate UI
+    initProfiles();
+    populateIconSelect();
+    populateProfileSelectors();
+    updateLauncherUiForActiveProfile();
+    renderInstallations();
+    updateProfileVersionSelect();
+    loadConfigurations();
 
     // Query storage path and update label
     window.api.getStoragePath().then(path => {
@@ -1908,33 +1919,26 @@ if (window.api) {
       if (storageLabel) storageLabel.value = path;
     }).catch(err => console.error(err));
 
+    // Non-blocking background fetch for official version manifests
     window.api.fetchMcVersions().then(async (versions) => {
-      allMcVersions = versions;
-      initProfiles();
-      populateIconSelect();
-      populateProfileSelectors();
-      updateLauncherUiForActiveProfile();
-      renderInstallations();
-      updateProfileVersionSelect();
-      loadConfigurations();
+      if (versions && versions.releases) {
+        allMcVersions = versions;
+        populateProfileSelectors();
+        updateLauncherUiForActiveProfile();
+        renderInstallations();
+        updateProfileVersionSelect();
+      }
     }).catch(async (err) => {
-      console.error("Failed to fetch Minecraft versions:", err);
-      // Fallback versions
-      allMcVersions = {
-        releases: ['1.21.4', '1.21.1', '1.20.4', '1.20.1', '1.19.4', '1.18.2', '1.16.5', '1.12.2', '1.8.9'],
-        snapshots: ['1.21.5-pre1'],
-        latest: { release: '1.21.4', snapshot: '1.21.5-pre1' }
-      };
-      initProfiles();
-      populateIconSelect();
-      populateProfileSelectors();
-      updateLauncherUiForActiveProfile();
-      renderInstallations();
-      updateProfileVersionSelect();
-      loadConfigurations();
+      console.warn("Using offline Minecraft version definitions:", err);
     });
   }).catch(err => {
     console.error("Failed to load launcher configuration:", err);
+    initProfiles();
+    populateIconSelect();
+    populateProfileSelectors();
+    updateLauncherUiForActiveProfile();
+    renderInstallations();
+    loadConfigurations();
   });
 } else {
   // Static browser simulation fallback
