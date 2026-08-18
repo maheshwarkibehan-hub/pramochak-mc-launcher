@@ -10,27 +10,25 @@
  * ============================================================================
  */
 
-(function() {
-  console.log('[TAURI-BRIDGE] Initializing Tauri WebView bridge...');
-  if (typeof window !== 'undefined' && window.__TAURI__) {
-    console.log('[TAURI-BRIDGE] Tauri detected! Exposing window.api');
-    const { invoke } = window.__TAURI__.core;
-    const { listen } = window.__TAURI__.event;
+import { invoke } from '@tauri-apps/api/core';
+import { listen } from '@tauri-apps/api/event';
 
-    // Helper to call backend sidecar commands
-    async function fnCall(cmd, ...args) {
-      try {
-        return await invoke('call_backend', { cmd, args });
-      } catch (err) {
-        console.error(`[TAURI-BRIDGE] Error calling sidecar backend for ${cmd}:`, err);
-        throw err;
-      }
-    }
+console.log('[TAURI-BRIDGE] Initializing Tauri v2 official bridge...');
 
-    window.api = {
-      minimizeWindow: () => invoke('minimize_window'),
-      maximizeWindow: () => invoke('maximize_window'),
-      closeWindow: () => invoke('close_window'),
+// Helper to call backend sidecar commands
+async function fnCall(cmd, ...args) {
+  try {
+    return await invoke('call_backend', { cmd, args });
+  } catch (err) {
+    console.error(`[TAURI-BRIDGE] Error calling sidecar backend for ${cmd}:`, err);
+    throw err;
+  }
+}
+
+window.api = {
+  minimizeWindow: () => invoke('minimize_window'),
+  maximizeWindow: () => invoke('maximize_window'),
+  closeWindow: () => invoke('close_window'),
       
       launchGame: (options) => fnCall('launch-game', options),
       cancelLaunch: () => fnCall('cancel-launch'),
@@ -110,12 +108,9 @@
         listen('server-log', (event) => callback(event.payload));
       },
       onServerStatus: (callback) => {
-        listen('server-status', (event) => callback(event.payload));
-      },
-      getSystemDiagnostics: () => fnCall('get-system-diagnostics')
-    };
-    console.log('[TAURI-BRIDGE] window.api successfully exposed!');
-  } else {
-    console.warn('[TAURI-BRIDGE] Tauri not detected. Not running inside a Tauri WebView.');
-  }
-})();
+    listen('server-status', (event) => callback(event.payload));
+  },
+  getSystemDiagnostics: () => fnCall('get-system-diagnostics')
+};
+
+console.log('[TAURI-BRIDGE] window.api successfully exposed via official @tauri-apps/api/core!');

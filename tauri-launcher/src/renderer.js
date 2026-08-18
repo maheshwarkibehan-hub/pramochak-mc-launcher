@@ -82,6 +82,30 @@ let isPaused = false;
 let currentPercentage = 0; // Track highest percentage reached to avoid backward jumps
 let lastLaunchOptions = null; // Store last options for Resume
 
+let launcherConfig = {
+  username: 'Pramochak_MC',
+  ram: '4096',
+  javaPath: '',
+  resWidth: '854',
+  resHeight: '480',
+  activeProfileId: '',
+  profiles: []
+};
+let userProfiles = [];
+let activeProfileId = '';
+let allMcVersions = {
+  releases: ['1.21.4', '1.21.1', '1.20.4', '1.20.1', '1.19.4', '1.18.2', '1.16.5', '1.12.2', '1.8.9'],
+  snapshots: ['1.21.5-pre1'],
+  latest: { release: '1.21.4', snapshot: '1.21.5-pre1' }
+};
+
+function getLatestReleaseVersion() {
+  return (allMcVersions && allMcVersions.latest && allMcVersions.latest.release) ? allMcVersions.latest.release : '1.21.4';
+}
+function getLatestSnapshotVersion() {
+  return (allMcVersions && allMcVersions.latest && allMcVersions.latest.snapshot) ? allMcVersions.latest.snapshot : '1.21.5-pre1';
+}
+
 // Performance optimization: High-efficiency debouncer
 function debounce(func, wait) {
   let timeout;
@@ -156,6 +180,17 @@ navItems.forEach(item => {
       if (targetScreen) {
         void targetScreen.offsetWidth; // Force DOM reflow to re-trigger CSS keyframes
         targetScreen.classList.add('active');
+      }
+
+      // If Home screen clicked, refresh active profile display and worlds
+      if (screenId === 'screen-home') {
+        updateLauncherUiForActiveProfile();
+        loadRecentPlay();
+      }
+
+      // If Installations screen clicked, refresh installations cards
+      if (screenId === 'screen-installations') {
+        renderInstallations();
       }
 
       // If Mods screen clicked, refresh profile select and load recommendations
@@ -499,22 +534,23 @@ function renderInstallations() {
   installationsList.innerHTML = '';
   
   userProfiles.forEach(profile => {
-    const card = document.createElement('div');
-    const isActive = profile.id === activeProfileId;
-    card.className = `installation-card${isActive ? ' active-profile' : ''}`;
-    
-    // Resolve version display name
-    let verDisplay = profile.version;
-    if (profile.version === 'latest-release') {
-      verDisplay = `Latest Release (${allMcVersions.latest.release || 'Fetching...'})`;
-    } else if (profile.version === 'latest-snapshot') {
-      verDisplay = `Latest Snapshot (${allMcVersions.latest.snapshot || 'Fetching...'})`;
-    } else {
-      verDisplay = `Minecraft ${profile.version}`;
-    }
-    
-    const iconSvg = getIconSvg(resolveBlockForProfile(profile));
-    const playtimeText = profile.playtime ? ` • Playtime: ${formatPlaytime(profile.playtime)}` : '';
+    try {
+      const card = document.createElement('div');
+      const isActive = profile.id === activeProfileId;
+      card.className = `installation-card${isActive ? ' active-profile' : ''}`;
+      
+      // Resolve version display name safely
+      let verDisplay = profile.version || '1.20.1';
+      if (profile.version === 'latest-release') {
+        verDisplay = `Latest Release (${getLatestReleaseVersion()})`;
+      } else if (profile.version === 'latest-snapshot') {
+        verDisplay = `Latest Snapshot (${getLatestSnapshotVersion()})`;
+      } else {
+        verDisplay = `Minecraft ${profile.version}`;
+      }
+      
+      const iconSvg = getIconSvg(resolveBlockForProfile(profile));
+      const playtimeText = profile.playtime ? ` • Playtime: ${formatPlaytime(profile.playtime)}` : '';
     
     card.innerHTML = `
       <div class="installation-card-left">
@@ -591,7 +627,10 @@ function renderInstallations() {
     });
     
     installationsList.appendChild(card);
-  });
+  } catch (err) {
+    console.error("Error rendering profile card:", profile, err);
+  }
+});
 }
 
 function setActiveProfile(id) {
@@ -841,6 +880,7 @@ if (tabListProfiles && tabCreateProfile && pageListProfiles && pageCreateProfile
     tabCreateProfile.classList.remove('active');
     pageListProfiles.classList.add('active');
     pageCreateProfile.classList.remove('active');
+    renderInstallations();
   });
 
   tabCreateProfile.addEventListener('click', () => {
