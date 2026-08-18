@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pramochak MC Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark-charcoal">
+  <!-- FULLSCREEN CINEMATIC BOOT INTRO (STAGE 1: VIDEO + STAGE 2: 4S BRAND STING) -->
+  <div id="launcher-boot-intro" class="boot-intro-overlay">
+    <!-- Stage 1: Synchronized Video Intro -->
+    <div class="boot-intro-media-wrapper" id="boot-stage-video">
+      <video id="boot-intro-video" class="boot-intro-video" src="videoplayback.webm" playsinline preload="auto"></video>
+      <audio id="boot-intro-audio" src="videoplayback.m4a" preload="auto"></audio>
+    </div>
+
+    <!-- Stage 2: 4-Second Black Brand Logo Sting -->
+    <div class="boot-brand-sting" id="boot-stage-brand" style="display: none;">
+      <div class="brand-sting-ambient-glow"></div>
+      <div class="brand-sting-center">
+        <div class="brand-sting-logo-wrap">
+          <img src="applogo.png" class="brand-sting-logo" alt="Pramochak MC">
+        </div>
+        <div class="brand-sting-title-group">
+          <h1 class="brand-sting-title">PRAMOCHAK <span class="brand-sting-accent">MC</span></h1>
+          <p class="brand-sting-tagline">Next-Gen Minecraft Studio Launcher</p>
+        </div>
+      </div>
+      <div class="brand-sting-copyright">
+        <span>© Maheshwar</span>
+      </div>
+    </div>
+
+    <!-- Interactive Skip Button -->
+    <div class="boot-intro-skip-badge" id="btn-skip-intro">
+      <span class="skip-text">Skip Intro</span>
+      <kbd>ESC</kbd>
+    </div>
+  </div>
+
+  <div class="launcher-window">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand-section">
+        <!-- App Logo -->
+        <img src="applogo.png" class="brand-logo" alt="Pramochak MC Logo">
+        <div class="brand-info">
+          <span class="brand-name">PRAMOCHAK</span>
+          <span class="brand-tag">MC</span>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <div class="nav-item active" id="nav-home" data-screen="screen-home">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" id="nav-installations" data-screen="screen-installations">
+          <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.11-.9-2-2-2H4c-1.11 0-2 .89-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+          <span>Installations</span>
+        </div>
+        <div class="nav-item" id="nav-skins" data-screen="screen-skins">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+          <span>Skins</span>
+        </div>
+        <div class="nav-item" id="nav-mods" data-screen="screen-mods">
+          <svg viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.38 0 2.5 1.12 2.5 2.5S4.88 15.8 3.5 15.8H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5s-1.12-2.5-2.5-2.5z"/></svg>
+          <span>Mods</span>
+        </div>
+        <div class="nav-item" id="nav-resources" data-screen="screen-resources">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-2 8h-3v3h-2v-3H8v-2h3V9h2v3h3v2z"/></svg>
+          <span>Resource Packs</span>
+        </div>
+        <div class="nav-item" id="nav-worlds" data-screen="screen-worlds">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <span>Worlds</span>
+        </div>
+        <div class="nav-item" id="nav-servers" data-screen="screen-servers">
+          <svg viewBox="0 0 24 24"><path d="M4 14h16v-2H4v2zm0 4h16v-2H4v2zM4 6v4h16V6H4z"/></svg>
+          <span>Servers</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-footer">
+        <div class="nav-item" id="nav-settings" data-screen="screen-settings">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>Settings</span>
+        </div>
+        <div class="nav-item" id="nav-support" data-screen="screen-about">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <span>Support</span>
+        </div>
+        <div class="nav-item" id="nav-credits" data-screen="screen-credits">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.46-2.33 6.79-5 7.93-2.67-1.14-5-4.47-5-7.93V7.18L12 5zm-1 5v2h2V10h-2zm0 4v2h2v-2h-2z"/></svg>
+          <span>Credits</span>
+        </div>
+        
+        <!-- Streamlined 2-Theme Selector Widget -->
+        <div class="theme-selector-widget" id="theme-selector-btn" tabindex="0" role="button" aria-haspopup="listbox" aria-label="Select Color Theme">
+          <div class="theme-selector-left">
+            <span class="theme-sphere"></span>
+            <div class="theme-info-text">
+              <span class="theme-label">Theme</span>
+              <span class="theme-value" id="active-theme-label">Dark Studio</span>
+            </div>
+          </div>
+          <svg class="theme-arrow" viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
+          </svg>
+          
+          <!-- Floating Popover (2 Options) -->
+          <div class="theme-popover" id="theme-popover" role="listbox" aria-label="Themes">
+            <div class="theme-option" data-theme="warm-cream" role="option" aria-selected="false" tabindex="0">
+              <span class="theme-sphere" style="background: #FAFAFA; border: 1px solid rgba(0,0,0,0.15);"></span>
+              <span>Light Luxe</span>
+            </div>
+            <div class="theme-option active" data-theme="dark-charcoal" role="option" aria-selected="true" tabindex="0">
+              <span class="theme-sphere" style="background: #09090B;"></span>
+              <span>Dark Studio</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="footer-text">PRAMOCHAK MC<br>v2.0.0 • August 2026</p>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- Window Titlebar Controls -->
+      <div class="titlebar">
+        <span class="titlebar-title">Pramochak MC</span>
+        <div class="window-controls">
+          <!-- Minimize -->
+          <button class="control-btn minimize" id="btn-minimize" title="Minimize">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <line x1="3" y1="8" x2="13" y2="8"/>
+            </svg>
+          </button>
+          <!-- Maximize / Restore -->
+          <button class="control-btn maximize" id="btn-maximize" title="Maximize / Restore">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="10" height="10" rx="2"/>
+            </svg>
+          </button>
+          <!-- Close -->
+          <button class="control-btn close" id="btn-close" title="Close">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <line x1="4" y1="4" x2="12" y2="12"/>
+              <line x1="12" y1="4" x2="4" y2="12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Top Header containing Search, Notifications and Profile Card -->
+      <div class="top-header">
+        <div class="header-search-container" id="global-search-trigger" title="Search Launcher (Ctrl+K)">
+          <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-placeholder">Search worlds, mods, installations...</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </div>
+
+        <div class="top-header-right">
+          <button class="notification-btn" id="notification-trigger" title="Notifications">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <div class="profile-card" id="profile-card-btn" title="Switch Account / Manage Profiles">
+            <img src="assets/steve_avatar.png" class="profile-avatar" id="header-avatar" alt="Avatar">
+            <div class="profile-info">
+              <span class="profile-name" id="header-username">Pramochak_MC</span>
+              <span class="profile-status">Online</span>
+            </div>
+            <svg class="profile-arrow" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5H7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRESS OVERLAY DURING DOWNLOADING / LAUNCHING -->
+      <div class="progress-overlay" id="progress-overlay" style="display: none;">
+        <div class="progress-card">
+          <!-- Top Instance Badge Row -->
+          <div class="progress-instance-header">
+            <div class="progress-instance-info">
+              <div class="progress-instance-icon-wrap" id="progress-instance-icon">
+                <img src="pics/Furnace.png" id="progress-instance-img" alt="Profile Icon">
+              </div>
+              <div class="progress-instance-meta">
+                <span class="progress-instance-name" id="progress-instance-name">Active Profile</span>
+                <span class="progress-instance-sub" id="progress-instance-sub">1.21.4 • FABRIC</span>
+              </div>
+            </div>
+            <div class="progress-status-pill" id="progress-status-pill">
+              <span class="pulse-dot green" id="progress-pulse-dot"></span>
+              <span id="progress-status-pill-text">Launching</span>
+            </div>
+          </div>
+
+          <!-- 4-Stage Pipeline Stepper -->
+          <div class="progress-pipeline-stepper">
+            <div class="pipeline-step active" id="pipeline-step-assets">
+              <span class="step-num">1</span>
+              <span class="step-label">Assets</span>
+            </div>
+            <div class="pipeline-connector"></div>
+            <div class="pipeline-step" id="pipeline-step-libs">
+              <span class="step-num">2</span>
+              <span class="step-label">Libraries</span>
+            </div>
+            <div class="pipeline-connector"></div>
+            <div class="pipeline-step" id="pipeline-step-jar">
+              <span class="step-num">3</span>
+              <span class="step-label">Client JAR</span>
+            </div>
+            <div class="pipeline-connector"></div>
+            <div class="pipeline-step" id="pipeline-step-jvm">
+              <span class="step-num">4</span>
+              <span class="step-label">Engine</span>
+            </div>
+          </div>
+
+          <!-- Hero Percentage & Main Status -->
+          <div class="progress-hero-stage">
+            <div class="progress-stage-details">
+              <span class="progress-title-label" id="progress-title">Preparing Game Pipeline...</span>
+              <span class="progress-file-label" id="progress-file-label">Resolving version manifests and indices...</span>
+            </div>
+            <div class="progress-pct-wrap">
+              <span class="progress-pct-label" id="progress-pct-label">0%</span>
+            </div>
+          </div>
+
+          <!-- Fluid Progress Bar with Luminous Shimmer -->
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;">
+              <div class="progress-bar-shimmer"></div>
+            </div>
+          </div>
+
+          <!-- Telemetry & Speed ETA Row -->
+          <div class="progress-meta-row">
+            <span id="progress-details-text" class="progress-details-sub">Initializing secure download handshake...</span>
+            <div class="progress-speed-eta">
+              <span class="telemetry-item"><svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg><strong id="progress-speed-value">--</strong></span>
+              <span class="telemetry-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><strong id="progress-eta-value">--</strong></span>
+            </div>
+          </div>
+
+          <!-- Interactive Action Controls -->
+          <div class="progress-controls-row">
+            <button class="btn-progress-console-toggle" id="btn-toggle-progress-console" title="Toggle Live Console Logs">
+              <svg viewBox="0 0 24 24"><path d="M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9.57 7 8.16l4.43 4.43L7 17.02l-1.43-1.44 4.01-4.01z"/></svg>
+              <span id="btn-console-toggle-text">Console</span>
+            </button>
+            <div class="progress-main-actions">
+              <button class="btn-progress-pause" id="btn-progress-pause">
+                <svg viewBox="0 0 24 24" id="btn-progress-pause-icon"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                <span id="btn-pause-text">Pause</span>
+              </button>
+              <button class="btn-progress-stop" id="btn-progress-stop">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                <span>Cancel</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- High-Density Collapsible Live Console Output -->
+          <div class="progress-console-output" id="progress-console" style="display: none;"></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 1: HOME (2-COLUMN HERO + RECENT WORLDS) -->
+      <div class="screen active" id="screen-home">
+        <div class="home-layout">
+          
+          <!-- Top Row: Hero Card (Left) + Right Hub (Quick Actions + Telemetry + Notes) -->
+          <div class="home-top-row">
+            
+            <!-- 1. Hero Launchpad Card (Cinematic Parallax & Motion) -->
+            <div class="hero-card" id="hero-card">
+              <!-- Cinematic Background Image & Lighting Layers -->
+              <div class="hero-card-bg-wrapper">
+                <img src="assets/hero_cinematic.jpg" class="hero-card-bg-img" id="hero-card-bg-img" alt="Minecraft Cinematic Wallpaper">
+                <div class="hero-card-vignette"></div>
+                <div class="hero-card-ambient-light"></div>
+                <div class="hero-particles" id="hero-particles"></div>
+              </div>
+
+              <!-- Foreground Content -->
+              <div class="hero-left">
+                <span class="hero-welcome">
+                  <span class="pulse-dot green"></span>
+                  <span>Ready to Launch</span>
+                </span>
+                <h1 class="hero-title">Ready to Craft</h1>
+                <p class="hero-desc">Logged in as <strong id="hero-profile-subtitle" style="color: var(--text-primary);">Pramochak_MC</strong> • Active profile ready to launch</p>
+                
+                <div class="hero-buttons">
+                  <button class="btn-play" id="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <span>PLAY NOW</span>
+                  </button>
+                  <button class="btn-outline" id="launch-options-btn">
+                    <span>Launch Options</span>
+                    <svg viewBox="0 0 24 24" width="12" height="12"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Right Column Hub -->
+            <div class="home-right-panel">
+              
+              <!-- Quick Actions -->
+              <div class="bento-card">
+                <span class="bento-card-title">Quick Actions</span>
+                <div class="quick-actions-bento-grid">
+                  <button class="bento-action-btn" id="bento-action-create">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>New World</span>
+                  </button>
+                  <button class="bento-action-btn" id="bento-action-add-server">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    <span>Add Server</span>
+                  </button>
+                  <button class="bento-action-btn" id="bento-action-install-mod">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span>Browse Mods</span>
+                  </button>
+                  <button class="bento-action-btn" id="bento-action-browse-packs">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    <span>Resource Packs</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Instance Status & Telemetry -->
+              <div class="bento-card">
+                <span class="bento-card-title">Instance & System</span>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div class="info-card" id="card-version" title="Change Minecraft Version" tabindex="0">
+                    <div class="info-card-left">
+                      <div class="info-card-icon-wrapper">
+                        <img src="applogo.png" class="info-card-icon" alt="App Icon" style="width:100%; height:100%; object-fit:contain; border-radius:4px;">
+                      </div>
+                      <div class="info-card-details">
+                        <span class="info-card-label">Active Profile</span>
+                        <span class="info-card-value" id="selected-version-label">1.21.4</span>
+                        <span class="info-card-subvalue">Minecraft Java Edition</span>
+                      </div>
+                    </div>
+                    <svg class="info-card-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                  </div>
+
+                  <div style="background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 10px; display: flex; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem;">
+                      <span style="color: var(--text-secondary); font-weight: 500;">RAM Allocation</span>
+                      <span style="color: var(--text-primary); font-weight: 700; font-family: var(--font-mono);" id="diagnostics-ram-label">4.0 GB / 16.0 GB</span>
+                    </div>
+                    <div style="height: 4px; background: var(--bg-card); border-radius: 2px; overflow: hidden;">
+                      <div style="width: 25%; height: 100%; background: var(--text-primary); border-radius: 2px; transition: width 0.3s ease;" id="diagnostics-ram-bar"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px;">
+                      <span>Java: <strong id="diagnostics-java-value" style="color: var(--text-primary);">Java 17</strong></span>
+                      <span>Disk: <strong id="diagnostics-dir-value" style="color: var(--text-primary);">1.42 GB</strong></span>
+                    </div>
+                  </div>
+
+                  <!-- Preserved hidden containers for JS bindings -->
+                  <div class="info-card" id="card-worlds" title="Explore Saves Directory" tabindex="0" style="display: none;">
+                    <span id="world-count-label">0 worlds</span>
+                  </div>
+                  <div class="info-card" id="card-servers" title="Multiplayer Servers" tabindex="0" style="display: none;">
+                    <span id="server-count-label">0 servers</span>
+                  </div>
+                  <span id="stats-playtime-label" style="display: none;">0m</span>
+                  <span id="stats-sessions-label" style="display: none;">0 Launches</span>
+                  <span id="stats-profiles-label" style="display: none;">0 Profiles</span>
+                  <span id="stats-mods-label" style="display: none;">0 Mods</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Row: Recent Worlds Full-Width Carousel -->
+          <div class="recent-play-section">
+            <div class="recent-play-header">
+              <span class="recent-play-title">Recent Worlds</span>
+              <a href="#" class="recent-play-all" id="btn-view-all-worlds">
+                <span>View All Saves</span>
+                <svg width="12" height="12" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/></svg>
+              </a>
+            </div>
+            
+            <div class="recent-play-grid">
+              <!-- Dynamically populated in JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCREEN 2: INSTALLATIONS -->
+      <div class="screen" id="screen-installations">
+        <div class="screen-header-row">
+          <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Launch Profiles</h2>
+        </div>
+        
+        <!-- Pager Tabs Selector -->
+        <div class="installations-tabs">
+          <div class="inst-tab active" id="tab-list-profiles" data-tab="page-list-profiles">
+            <svg viewBox="0 0 24 24"><path d="M4 14h16v-2H4v2zm0 4h16v-2H4v2zM4 6v4h16V6H4z"/></svg>
+            <span>All Installations</span>
+          </div>
+          <div class="inst-tab" id="tab-create-profile" data-tab="page-create-profile">
+            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Create Profile</span>
+          </div>
+          <button class="btn-save" id="btn-import-modpack" style="margin-left: auto; padding: 6px 14px; font-size: 0.8rem;">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M5 20h14v-2H5v2zm0-10h4v6h6v-6h4l-7-7-7 7z"/></svg>
+            Import Modpack (.zip / .mrpack)
+          </button>
+        </div>
+
+        <div class="installations-pager-content">
+          <!-- Page 1: List Profiles -->
+          <div class="inst-page active" id="page-list-profiles">
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">
+              Manage custom launch configurations. Apply Vanilla, Fabric, or Forge loaders with specific memory footprints.
+            </p>
+            <div class="installations-list" id="installations-list">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- Page 2: Create Profile -->
+          <div class="inst-page" id="page-create-profile">
+            <div class="settings-grid">
+              
+              <!-- Card 1: Identity & Icon -->
+              <div class="settings-card">
+                <h3 class="card-title">General Settings</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-name-input">Profile Name</label>
+                  <input type="text" id="profile-name-input" class="input-field" placeholder="e.g. My Modded World" value="New Installation">
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-icon-select">Profile Icon</label>
+                  <select id="profile-icon-select" class="input-field">
+                    <option value="grass">Grass Block</option>
+                    <option value="diamond">Diamond Block</option>
+                    <option value="redstone">Redstone Block</option>
+                    <option value="obsidian">Obsidian Block</option>
+                    <option value="furnace">Furnace Block</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Card 2: Version Configuration -->
+              <div class="settings-card">
+                <h3 class="card-title">Version Configuration</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-version-type">Version Filter</label>
+                  <select id="profile-version-type" class="input-field">
+                    <option value="release">Releases Only</option>
+                    <option value="snapshot">Snapshots Only</option>
+                  </select>
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-version-select">Minecraft Version</label>
+                  <select id="profile-version-select" class="input-field">
+                    <!-- Dynamically populated -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- Card 3: Mod Loader Settings -->
+              <div class="settings-card">
+                <h3 class="card-title">Mod Loader</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-loader-select">Loader Type</label>
+                  <select id="profile-loader-select" class="input-field">
+                    <option value="vanilla">None (Vanilla)</option>
+                    <option value="fabric">Fabric Loader</option>
+                    <option value="forge">Forge Loader</option>
+                  </select>
+                </div>
+                <p style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">
+                  Our launcher automates Fabric loader setups dynamically and queries Forge version lists. Ensure compatible mods are placed in your mods folder.
+                </p>
+              </div>
+
+              <!-- Card 4: RAM & Memory Settings -->
+              <div class="settings-card">
+                <h3 class="card-title">Performance & Java</h3>
+                <div class="settings-row">
+                  <label class="input-label">Memory Allocation (RAM)</label>
+                  <input type="range" id="profile-ram-slider" min="1024" max="8192" step="1024" value="4096">
+                  <div class="range-values">
+                    <span>1 GB</span>
+                    <span id="profile-ram-value" style="color: var(--text-primary); font-weight: 700;">4 GB</span>
+                    <span>8 GB</span>
+                  </div>
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-java-path">Custom Java Binary (Optional)</label>
+                  <input type="text" id="profile-java-path" class="input-field" placeholder="Default (Auto-downloaded compat JRE)">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-actions-row">
+              <button class="btn-cancel" id="btn-cancel-create-profile">Reset Form</button>
+              <button class="btn-save" id="btn-apply-profile-dialog">Create & Save Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: SETTINGS -->
+      <div class="screen" id="screen-settings">
+        <div class="screen-header-row">
+          <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Settings</h2>
+        </div>
+        <div class="settings-grid">
+          
+          <div class="settings-card">
+            <h3 class="card-title">Profile & Identity</h3>
+            <div class="settings-row">
+              <label class="input-label" for="username">Player Nickname (Offline)</label>
+              <input type="text" id="username" class="input-field" placeholder="Enter player name..." value="Pramochak_MC">
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="version-select">Active Game Version</label>
+              <select id="version-select" class="input-field">
+                <option value="1.21.4">Minecraft 1.21.4</option>
+                <option value="1.21">Minecraft 1.21</option>
+                <option value="1.20.4">Minecraft 1.20.4</option>
+                <option value="1.20.1" selected>Minecraft 1.20.1</option>
+                <option value="1.19.4">Minecraft 1.19.4</option>
+                <option value="1.18.2">Minecraft 1.18.2</option>
+                <option value="1.16.5">Minecraft 1.16.5</option>
+                <option value="1.8.9">Minecraft 1.8.9</option>
+              </select>
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="settings-theme-select">Launcher Theme</label>
+              <select id="settings-theme-select" class="input-field">
+                <option value="warm-cream">Light Luxe (Recommended)</option>
+                <option value="dark-charcoal" selected>Dark Studio</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Performance (RAM)</h3>
+            <div class="settings-row">
+              <label class="input-label">Memory Allocation</label>
+              <input type="range" id="ram-slider" min="1024" max="8192" step="1024" value="4096">
+              <div class="range-values">
+                <span>1 GB</span>
+                <span id="ram-value" style="color: var(--text-primary); font-weight: 700;">4 GB</span>
+                <span>8 GB</span>
+              </div>
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="java-path">Custom Java Path (Optional)</label>
+              <input type="text" id="java-path" class="input-field" placeholder="Default (Auto-detected)">
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Launch Resolution</h3>
+            <div class="settings-row">
+              <label class="input-label" for="resolution-w">Width (px)</label>
+              <input type="number" id="resolution-w" class="input-field" value="854">
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="resolution-h">Height (px)</label>
+              <input type="number" id="resolution-h" class="input-field" value="480">
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Security & Storage</h3>
+            <div class="settings-row">
+              <label class="input-label">Launcher Storage Root</label>
+              <input type="text" class="input-field" id="storage-root-label" readonly value="~/.minecraft" style="opacity: 0.6; cursor: not-allowed;">
+            </div>
+            <div class="settings-row">
+              <label class="input-label">Verification Status</label>
+              <span style="color: var(--status-ready-dot); font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                ✓ HTTPS SECURE CONNECTIONS FORCED
+              </span>
+            </div>
+            <div class="settings-row" style="margin-top: 10px;">
+              <label class="checkbox-container">
+                <input type="checkbox" id="setting-keep-open-logs">
+                <span class="checkmark"></span>
+                Keep launcher open & show real-time logs
+              </label>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="form-actions-row">
+          <button class="btn-cancel" id="cancel-settings-btn">Cancel</button>
+          <button class="btn-save" id="save-settings-btn">Save Configurations</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: SKINS & CAPES STUDIO -->
+      <div class="screen" id="screen-skins">
+        <div class="screen-header-row">
+          <div class="screen-header-col">
+            <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Wardrobe & Skin Studio</h2>
+            <p class="screen-subtitle">Upload, paint, fetch by username, and customize your 3D Minecraft skin in real-time.</p>
+          </div>
+        </div>
+        
+        <div class="skins-workspace-layout">
+          
+          <!-- LEFT COLUMN: 3D Orbit Stage -->
+          <div class="skin-stage-card">
+            <div class="skin-stage-header">
+              <div class="stage-title-wrap">
+                <span class="stage-title">3D Orbit Stage</span>
+                <span class="stage-badge">LIVE 3D</span>
+              </div>
+            </div>
+            
+            <div class="skin-viewer-container" id="skin-viewer-container">
+              <div id="skin-viewer-mount"></div>
+            </div>
+            
+            <div class="skin-stage-controls">
+              <!-- Checkbox Toggles -->
+              <div class="stage-toggles-row">
+                <label class="stage-toggle-chip">
+                  <input type="checkbox" id="skin-viewer-rotate" checked>
+                  <span class="toggle-icon">🔄</span>
+                  <span>Auto-Rotate</span>
+                </label>
+                <label class="stage-toggle-chip">
+                  <input type="checkbox" id="skin-viewer-cape" checked>
+                  <span class="toggle-icon">🧥</span>
+                  <span>Show Cape</span>
+                </label>
+              </div>
+
+              <!-- Model Selector (Classic vs Slim) -->
+              <div class="stage-control-group">
+                <span class="stage-group-label">Player Model Geometry</span>
+                <div class="model-type-segmented">
+                  <label class="segmented-option">
+                    <input type="radio" name="model-type" value="classic" checked>
+                    <span class="segmented-pill">Classic (4px Steve)</span>
+                  </label>
+                  <label class="segmented-option">
+                    <input type="radio" name="model-type" value="slim">
+                    <span class="segmented-pill">Slim (3px Alex)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Animation Preset -->
+              <div class="stage-control-group">
+                <span class="stage-group-label">Motion Pose</span>
+                <select id="skin-viewer-animation" class="input-field stage-select">
+                  <option value="idle">Idle Breath</option>
+                  <option value="walk" selected>Walking</option>
+                  <option value="run">Running</option>
+                  <option value="fly">Flying</option>
+                  <option value="none">Static T-Pose</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Unified Studio Hub -->
+          <div class="skins-hub-card">
+            
+            <!-- SECTION 1: FETCH BY USERNAME & QUICK PICKER -->
+            <div class="studio-section">
+              <div class="studio-section-header">
+                <span class="studio-section-title">Import by Username</span>
+                <span class="studio-section-desc">Fetch skins directly from Mojang or Ely.by databases</span>
+              </div>
+
+              <div class="skin-fetch-bar">
+                <div class="fetch-input-wrap">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  <input type="text" id="skin-search-username" placeholder="Enter Minecraft IGN (e.g. Dream, Notch, Technoblade)...">
+                </div>
+                <select id="skin-search-source" class="fetch-source-select">
+                  <option value="mojang">Mojang (Java)</option>
+                  <option value="elyby">Ely.by</option>
+                </select>
+                <button class="btn-primary-fetch" id="btn-skin-search">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                  <span>Fetch Skin</span>
+                </button>
+              </div>
+
+              <!-- Quick Select Avatar Carousel -->
+              <div class="quick-avatars-label">Quick Featured Presets:</div>
+              <div class="quick-avatars-row" id="featured-skins-grid">
+                <!-- Dynamically populated avatar head chips -->
+              </div>
+            </div>
+
+            <!-- SECTION 2: DUAL UPLOAD ZONES -->
+            <div class="studio-section">
+              <div class="studio-section-header">
+                <span class="studio-section-title">Upload Custom Files</span>
+                <span class="studio-section-desc">Drop PNG files from your local storage</span>
+              </div>
+
+              <div class="studio-upload-grid">
+                <div class="studio-upload-card" id="upload-skin-box">
+                  <div class="upload-icon-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                  </div>
+                  <div class="upload-text-wrap">
+                    <span class="upload-primary-text">Upload Custom Skin</span>
+                    <span class="upload-sub-text">PNG (64×64 or 64×32)</span>
+                  </div>
+                  <input type="file" id="skin-file-input" accept="image/png" style="display: none;">
+                </div>
+
+                <div class="studio-upload-card" id="upload-cape-box">
+                  <div class="upload-icon-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7V7h10v6z"/></svg>
+                  </div>
+                  <div class="upload-text-wrap">
+                    <span class="upload-primary-text">Upload Custom Cape</span>
+                    <span class="upload-sub-text">PNG (64×32, 22×17, 128×64)</span>
+                  </div>
+                  <input type="file" id="cape-file-input" accept="image/png" style="display: none;">
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 3: EMBEDDED LIVE PIXEL EDITOR -->
+            <div class="studio-section" id="studio-editor-section">
+              <div class="studio-section-header between">
+                <div>
+                  <span class="studio-section-title">Live Pixel Art Editor</span>
+                  <span class="studio-section-desc">Draw on the 2D texture sheet — updates 3D model in real-time</span>
+                </div>
+                <div class="editor-header-actions">
+                  <button class="btn-editor-pill" id="btn-editor-import" title="Load currently active 3D skin into canvas">
+                    <span>Sync Active</span>
+                  </button>
+                  <button class="btn-editor-pill" id="btn-editor-download" title="Export skin PNG">
+                    <span>Export PNG</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="embedded-editor-layout">
+                <!-- Canvas Center -->
+                <div class="embedded-canvas-box">
+                  <div class="embedded-canvas-scroll">
+                    <canvas id="skin-editor-canvas" width="64" height="64"></canvas>
+                  </div>
+                  <div class="canvas-floating-controls">
+                    <div class="zoom-pill">
+                      <span>Zoom</span>
+                      <input type="range" id="editor-zoom" min="2" max="10" step="1" value="5">
+                    </div>
+                    <button class="btn-grid-toggle" id="btn-editor-grid-toggle">Grid: ON</button>
+                  </div>
+                </div>
+
+                <!-- Editor Toolbar & Swatches -->
+                <div class="embedded-tools-panel">
+                  <div class="embedded-tool-btn-group">
+                    <button class="tool-btn active" id="tool-pencil" title="Pencil (Draw)">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+                    </button>
+                    <button class="tool-btn" id="tool-eraser" title="Eraser">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.24 7.76l5.66 5.66-9.9 9.9H6.34l-3.54-3.54 13.44-13.44M19.07 4.93l2.83 2.83-3.72 3.72-2.83-2.83 3.72-3.72z"/></svg>
+                    </button>
+                    <button class="tool-btn" id="tool-bucket" title="Bucket Fill">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </button>
+                    <button class="tool-btn" id="tool-picker" title="Color Picker">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                    </button>
+                  </div>
+
+                  <div class="color-picker-row">
+                    <span class="micro-label">Color</span>
+                    <input type="color" id="editor-color-picker" value="#4caf50" class="editor-color-input">
+                  </div>
+
+                  <div class="editor-color-palette" id="editor-palette">
+                    <!-- Populated in JS -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 4: ACTIONS FOOTER -->
+            <div class="studio-footer-row">
+              <div class="offline-note">
+                <span class="note-icon">💡</span>
+                <span>Offline skins auto-injected for <strong>CustomSkinLoader</strong></span>
+              </div>
+              <div class="studio-buttons-wrap">
+                <button class="btn-cancel" id="btn-reset-skin">Revert to Steve</button>
+                <button class="btn-save btn-glow-gold" id="btn-save-skin">Save & Apply Wardrobe</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: MODS MANAGER -->
+      <div class="screen" id="screen-mods">
+        <div class="screen-header-row">
+          <div class="screen-header-col">
+            <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Mod Manager</h2>
+            <p class="screen-subtitle">Search, install, and manage mods from Modrinth securely.</p>
+            
+            <!-- Profile Selector for Mods -->
+            <div class="mods-profile-select-container">
+              <label for="mods-profile-select" class="mods-profile-label">Active Profile:</label>
+              <select id="mods-profile-select">
+                <!-- Populated dynamically with Profiles list -->
+              </select>
+              <span id="mods-profile-loader-badge" class="loader-badge vanilla">Vanilla</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mods Pager Tabs -->
+        <div class="installations-tabs">
+          <div class="inst-tab active" id="tab-mods-search" data-tab="page-mods-search">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Browse Modrinth</span>
+          </div>
+          <div class="inst-tab" id="tab-mods-installed" data-tab="page-mods-installed">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Installed Mods (<span id="installed-mods-count">0</span>)</span>
+          </div>
+        </div>
+
+        <!-- Mods Pages Content -->
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+          
+          <!-- Page 1: Search and Browse -->
+          <div class="inst-page active" id="page-mods-search" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0;">
+              <input type="text" id="mods-search-input" class="input-field" placeholder="Search mods from Modrinth (e.g. Sodium, Iris, FerriteCore)..." style="flex: 1; margin: 0; height: 38px;">
+              <button class="btn-save" id="btn-mods-search" style="height: 38px; padding: 0 16px; margin: 0;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <span>Search</span>
+              </button>
+            </div>
+
+            <!-- Mod list grid -->
+            <div class="mods-grid" id="mods-search-list" style="overflow-y: auto; flex: 1;">
+              <div style="grid-column: span 2; text-align: center; color: var(--text-muted); padding: 40px 0; font-size: 0.9rem;">
+                Select a profile above to load compatible mods.
+              </div>
+            </div>
+          </div>
+
+          <!-- Page 2: Installed list -->
+          <div class="inst-page" id="page-mods-installed" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div class="mods-installed-list" id="mods-installed-list" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1;">
+              <div style="text-align: center; color: var(--text-muted); padding: 40px 0; font-size: 0.9rem;">
+                No mods installed in this profile. Go to the "Browse Modrinth" tab to install mods!
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCREEN 6: WORLDS MANAGER -->
+      <div class="screen" id="screen-worlds" style="overflow: hidden;">
+        <div class="screen-header-row">
+          <div class="screen-header-col">
+            <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Worlds Manager</h2>
+            <p class="screen-subtitle">Explore, quick-launch, back up, or delete your singleplayer worlds.</p>
+            
+            <div class="mods-profile-select-container" style="margin-top: 4px;">
+              <label for="worlds-profile-select" class="mods-profile-label">Active Profile saves:</label>
+              <select id="worlds-profile-select">
+                <!-- Populated dynamically -->
+              </select>
+              <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button class="btn-save" id="btn-create-world" style="height: 28px; padding: 0 10px; margin: 0; font-size: 0.75rem;">
+                  <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                  <span>Create / Import</span>
+                </button>
+                <button class="btn-outline" id="btn-open-saves-folder" style="height: 28px; padding: 0 10px; margin: 0; font-size: 0.75rem;">
+                  <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                  <span>Open Saves Folder</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0; margin-bottom: 16px;">
+          <input type="text" id="worlds-search-input" class="input-field" placeholder="Search singleplayer worlds by name..." style="flex: 1; margin: 0; height: 38px;">
+        </div>
+
+        <div class="worlds-scroll-container" style="flex: 1; overflow-y: auto; width: 100%;">
+          <div id="worlds-empty-state" style="display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; color: var(--text-muted); gap: 14px;">
+            <svg viewBox="0 0 24 24" style="width: 56px; height: 56px; fill: var(--text-muted); opacity: 0.3;">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">No Worlds Found</div>
+            <p style="font-size: 0.85rem; max-width: 380px; line-height: 1.5; color: var(--text-muted);">Create a singleplayer world inside the game or add world folders to the saves folder to see them here.</p>
+          </div>
+
+          <div class="worlds-grid" id="worlds-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 7: RESOURCE PACKS MANAGER -->
+      <div class="screen" id="screen-resources" style="overflow: hidden;">
+        <div class="screen-header-row">
+          <div class="screen-header-col">
+            <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Resource Packs</h2>
+            <p class="screen-subtitle">Customize graphics, textures, and UI styling. Install from Modrinth or import local files.</p>
+            
+            <div class="mods-profile-select-container" style="margin-top: 4px;">
+              <label for="resources-profile-select" class="mods-profile-label">Active Profile packs:</label>
+              <select id="resources-profile-select">
+                <!-- Populated dynamically -->
+              </select>
+              
+              <button class="btn-save" id="btn-import-resourcepack" style="height: 28px; padding: 0 10px; margin: 0 0 0 auto; font-size: 0.75rem;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Import pack (.zip)</span>
+              </button>
+              
+              <button class="btn-cancel" id="btn-open-resources-folder" style="height: 28px; padding: 0 10px; margin: 0 0 0 8px; font-size: 0.75rem;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                <span>Open Folder</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Menu -->
+        <div class="installations-tabs">
+          <div class="inst-tab active" id="tab-resources-search">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Browse Modrinth</span>
+          </div>
+          <div class="inst-tab" id="tab-resources-installed">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Installed Packs (<span id="installed-resources-count">0</span>)</span>
+          </div>
+        </div>
+
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+          <!-- Page 1: Online Search -->
+          <div class="inst-page active" id="page-resources-search" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0;">
+              <input type="text" id="resources-search-input" class="input-field" placeholder="Search texture/resource packs (Faithful, Bare Bones, Fresh Animations)..." style="flex: 1; margin: 0; height: 38px;">
+              <button class="btn-save" id="btn-resources-search" style="height: 38px; padding: 0 16px; margin: 0;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <span>Search</span>
+              </button>
+            </div>
+
+            <!-- Online search list grid -->
+            <div class="mods-grid" id="resources-search-list" style="overflow-y: auto; flex: 1;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Page 2: Installed list -->
+          <div class="inst-page" id="page-resources-installed" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div class="mods-installed-list" id="resources-installed-list" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 8: SERVERS & MULTIPLAYER -->
+      <div class="screen" id="screen-servers" style="overflow: hidden;">
+        <div class="screen-header-row">
+          <div class="screen-header-col">
+            <h2 class="hero-title" style="font-size: 1.85rem; margin-bottom: 0;">Multiplayer & Hosting</h2>
+            <p class="screen-subtitle">Explore online servers or launch and run your own local Minecraft Java server instance.</p>
+          </div>
+        </div>
+
+        <!-- Tabs Menu -->
+        <div class="installations-tabs">
+          <div class="inst-tab active" id="tab-servers-multiplayer">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>Multiplayer List</span>
+          </div>
+          <div class="inst-tab" id="tab-servers-local">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span>Host Local Server</span>
+          </div>
+        </div>
+
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+          <!-- Page 1: Multiplayer List -->
+          <div class="inst-page active" id="page-servers-multiplayer" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div class="mods-profile-select-container" style="flex-shrink: 0;">
+              <label for="servers-profile-select" class="mods-profile-label">Instance profile:</label>
+              <select id="servers-profile-select">
+                <!-- Populated dynamically -->
+              </select>
+              
+              <button class="btn-save" id="btn-add-server" style="height: 28px; padding: 0 10px; margin: 0 0 0 auto; font-size: 0.75rem;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Add Server</span>
+              </button>
+            </div>
+
+            <!-- Server grid -->
+            <div class="mods-grid" id="multiplayer-servers-list" style="overflow-y: auto; flex: 1;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Page 2: Host Local Server -->
+          <div class="inst-page" id="page-servers-local" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; width: 100%;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);">Launch a local server from your PC with custom plugins/mods.</span>
+              <button class="btn-save" id="btn-create-local-server" style="height: 28px; padding: 0 10px; font-size: 0.75rem;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Create Local Server</span>
+              </button>
+            </div>
+
+            <!-- Grid container for local servers -->
+            <div id="local-servers-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; overflow-y: auto; max-height: 180px; flex-shrink: 0;">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Real-time Console Area -->
+            <div id="local-server-console-panel" class="console-panel" style="display: none; flex: 1; margin-top: 10px;">
+              <div class="console-header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="pulse-dot green" id="console-status-dot"></span>
+                  <span id="console-server-title" style="font-size: 0.82rem; font-weight: 700; color: var(--text-primary);">Console - Server</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span id="console-server-meta" style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">PaperMC 1.21.4</span>
+                  <button class="btn-cancel" id="btn-console-clear" style="height: 22px; font-size: 0.68rem; padding: 0 8px; border-radius: 4px;">Clear</button>
+                </div>
+              </div>
+              
+              <!-- Console Logs output -->
+              <div id="server-console-logs" class="console-logs" style="height: 180px;">
+                <!-- Logs stream here -->
+              </div>
+
+              <!-- Console input line -->
+              <div class="console-input-row">
+                <span class="console-prompt">&gt;</span>
+                <input type="text" id="server-console-input" class="console-input" placeholder="Type a server command (e.g. op username, stop, gamemode creative)...">
+                <button id="btn-send-server-command" style="background: transparent; border: none; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; padding: 4px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 9: ABOUT & SUPPORT -->
+      <div class="screen" id="screen-about">
+        <div class="about-card">
+          <img src="applogo.png" class="about-logo-img" alt="Pramochak MC Logo">
+          <h2 class="hero-title" style="font-size: 2rem; margin-top: 10px;">Pramochak MC</h2>
+          <p style="color: var(--text-muted); font-size: 0.84rem;">Version 2.0.0 (August 2026 Release)</p>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-top: 14px; font-size: 0.88rem;">
+            A high-performance Minecraft client manager built on top of Node.js and Electron, featuring sandboxed runtime isolation, automated cryptographic file verification, and secure HTTPS pipelines.
+          </p>
+          <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <span style="background: var(--bg-input); border: 1px solid var(--border); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; color: var(--text-primary);">
+              ✓ Safe Downloads Verified
+            </span>
+            <span style="background: var(--bg-input); border: 1px solid var(--border); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; color: var(--text-primary);">
+              🔒 Sandbox Isolation
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 10: CREDITS & PROPRIETARY LICENSE -->
+      <div class="screen" id="screen-credits" style="display:none; padding: 0; overflow: hidden; position: relative;">
+        <div class="credits-scroll-container">
+
+          <!-- Header -->
+          <div class="credits-header">
+            <div class="credits-icon-box">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            </div>
+            <div>
+              <h2 style="margin:0; font-size:1.5rem; font-weight:700; color: var(--text-primary);">Credits &amp; License</h2>
+              <p style="margin:0; font-size:0.8rem; color:var(--text-muted);">Pramochak MC Launcher — Proprietary Software</p>
+            </div>
+          </div>
+
+          <div class="credits-grid">
+
+            <!-- DEVELOPER CARD -->
+            <div class="bento-card credits-dev-card">
+              <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+                <!-- Avatar -->
+                <div class="credits-avatar-box">M</div>
+
+                <!-- Info -->
+                <div style="flex:1; min-width:200px;">
+                  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap;">
+                    <h3 style="margin:0; font-size:1.25rem; font-weight:700; color:var(--text-primary);">Maheshwar Hari Tripathi</h3>
+                    <span class="credits-badge-tag">CREATOR</span>
+                    <span class="credits-badge-tag">AGE 16</span>
+                  </div>
+                  <p style="margin:0 0 4px; font-size:0.82rem; color:var(--text-primary); font-weight:500;">🎓 Class 10 Student · St. Joseph's School, Kazipur</p>
+                  <p style="margin:0 0 4px; font-size:0.78rem; color:var(--text-muted);">📍 Kaushambi, Uttar Pradesh, India</p>
+                  <p style="margin:0 0 10px; font-size:0.78rem; color:var(--text-muted);">💻 Full-Stack Developer · AI Enthusiast · Maker</p>
+                  <p style="margin:0; font-size:0.8rem; color:var(--text-secondary); line-height:1.5; max-width:540px;">A passionate young developer building AI assistants, Android launchers, Chrome extensions, music players, and Arduino robots.</p>
+                </div>
+              </div>
+
+              <!-- Skills badges -->
+              <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;">
+                <span class="credits-skill-pill">⚡ Full-Stack Dev</span>
+                <span class="credits-skill-pill">🤖 AI / ML</span>
+                <span class="credits-skill-pill">📱 Android Dev</span>
+                <span class="credits-skill-pill">🔧 Arduino / IoT</span>
+                <span class="credits-skill-pill">🎮 Game Launchers</span>
+              </div>
+            </div>
+
+            <!-- PROJECT INFO -->
+            <div class="bento-card">
+              <span class="bento-card-title">About This Project</span>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">App Name</span>
+                  <span style="font-size:0.78rem; font-weight:600; color:var(--text-primary);">Pramochak MC Launcher</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">Platform</span>
+                  <span style="font-size:0.78rem; font-weight:600; color:var(--text-primary);">Electron · Windows</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">Built With</span>
+                  <span style="font-size:0.78rem; font-weight:600; color:var(--text-primary);">HTML · CSS · JS · Node.js</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">Made in</span>
+                  <span style="font-size:0.78rem; font-weight:600; color:var(--text-primary);">🇮🇳 India</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TECH STACK -->
+            <div class="bento-card">
+              <span class="bento-card-title">Engine Architecture</span>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-primary); font-weight:500;">Electron &amp; Chromium</span>
+                  <span style="font-size:0.72rem; color:var(--text-muted); margin-left:auto;">Desktop Shell</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-primary); font-weight:500;">Node.js Runtime</span>
+                  <span style="font-size:0.72rem; color:var(--text-muted); margin-left:auto;">Core Logic</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-primary); font-weight:500;">Skinview3D</span>
+                  <span style="font-size:0.72rem; color:var(--text-muted); margin-left:auto;">Three.js Canvas</span>
+                </div>
+                <div class="credits-info-row">
+                  <span style="font-size:0.78rem; color:var(--text-primary); font-weight:500;">Modrinth API</span>
+                  <span style="font-size:0.72rem; color:var(--text-muted); margin-left:auto;">Mod Ecosystem</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- LICENSE CARD -->
+            <div class="bento-card" style="grid-column:1/-1;">
+              <span class="bento-card-title">Proprietary Software License</span>
+              <div class="license-code-block">PRAMOCHAK MC LAUNCHER — PROPRIETARY SOFTWARE LICENSE
+Copyright (c) 2025–2026 Maheshwar Hari Tripathi. All Rights Reserved.
+This software and all associated source code, assets, design, and documentation are the exclusive intellectual property of Maheshwar Hari Tripathi.</div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:24px; text-align:center; font-size:0.72rem; color:var(--text-muted); letter-spacing:0.04em;">PRAMOCHAK MC LAUNCHER · CRAFTED WITH PRIDE BY MAHESHWAR HARI TRIPATHI · KAUSHAMBI, INDIA</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- MODAL: ACTIVE PROFILE SELECTION -->
+    <div class="version-dropdown-overlay" id="version-dialog-overlay" style="display: none;">
+      <div class="version-dialog" style="width: 480px; max-height: 85vh; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <h3 class="card-title" style="margin-bottom: 2px;">Select Active Profile</h3>
+          <p style="font-size: 0.8rem; color: var(--on-surface-muted);">Choose which launch profile to prepare for execution.</p>
+        </div>
+        
+        <div class="profile-picker-scroll-list" id="modal-profiles-picker-list">
+          <!-- Dynamically populated with official 3D block profile items -->
+        </div>
+
+        <!-- Hidden select for programmatic backward compatibility -->
+        <select id="modal-version-select" style="display: none;"></select>
+
+        <div class="form-actions-row" style="margin-top: 6px;">
+          <button class="btn-cancel" id="btn-close-version-dialog">Close</button>
+          <button class="btn-save" id="btn-apply-version-dialog">Apply Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: ACCOUNT & USERNAME SWITCHER -->
+    <div class="version-dropdown-overlay" id="username-dialog-overlay" style="display: none;">
+      <div class="version-dialog" style="width: 440px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <h3 class="card-title" style="margin-bottom: 0;">Account Manager</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -8px;">Switch accounts instantly or add offline players.</p>
+        
+        <div style="display: flex; flex-direction: column;">
+          <label class="input-label">Saved Accounts</label>
+          <div id="accounts-list-container">
+            <!-- Dynamically populated with account cards -->
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px;">
+          <label class="input-label" for="account-new-input">Add New Offline Player</label>
+          <div style="display: flex; gap: 8px; margin-top: 6px;">
+            <input type="text" id="account-new-input" class="input-field" placeholder="Enter new username..." style="flex: 1; margin: 0; height: 38px;">
+            <button class="btn-save" id="btn-add-switch-nickname" style="height: 38px; padding: 0 16px; font-size: 0.8rem; white-space: nowrap;">Add Player</button>
+          </div>
+        </div>
+
+        <div class="form-actions-row" style="margin-top: 4px;">
+          <button class="btn-cancel" id="btn-close-username-dialog">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: MODPACK INSTALL PROGRESS -->
+    <div class="version-dropdown-overlay" id="modpack-progress-overlay" style="display: none; z-index: 10000;">
+      <div class="version-dialog" style="width: 500px; padding: 26px; text-align: center;">
+        <h3 class="card-title" id="modpack-progress-title" style="margin-bottom: 6px;">Installing Modpack</h3>
+        <p id="modpack-progress-status" style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">Preparing installation...</p>
+        
+        <div class="progress-bar-container" style="margin-bottom: 14px;">
+          <div class="progress-bar-fill" id="modpack-progress-fill" style="width: 0%;"></div>
+        </div>
+        
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--bg-input); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-xs); max-height: 120px; overflow-y: auto; margin-bottom: 16px; text-align: left; white-space: pre-wrap; color: var(--text-secondary);" id="modpack-progress-log">Waiting...</div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="btn-cancel" id="btn-close-modpack-install" style="display: none;">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: CLIENT LOG VIEWER & CRASH DRAWER -->
+    <div class="version-dialog-overlay" id="client-logs-overlay" style="display: none; z-index: 10001;">
+      <div class="version-dialog" style="width: 820px; max-width: 92%; height: 520px; display: flex; flex-direction: column; padding: 0;">
+        <div class="console-header" style="padding: 12px 20px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="pulse-dot green" id="client-status-dot"></span>
+            <span style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Minecraft Game Logs</span>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn-save" id="btn-client-log-upload" style="height: 28px; padding: 0 12px; font-size: 0.75rem;">Upload to mclo.gs</button>
+            <button class="btn-cancel" id="btn-client-log-kill" style="height: 28px; padding: 0 12px; font-size: 0.75rem; color: #EF4444; border-color: rgba(239,68,68,0.3);">Kill Process</button>
+            <button class="btn-cancel" id="btn-client-log-close" style="height: 28px; padding: 0 12px; font-size: 0.75rem;">Close</button>
+          </div>
+        </div>
+        <div id="client-console-logs" class="console-logs" style="padding: 14px; text-align: left;">
+          <!-- Logs stream here -->
+        </div>
+        <div id="client-log-diagnosis" style="display: none; padding: 12px 20px; background: rgba(239, 68, 68, 0.12); border-top: 1px solid rgba(239, 68, 68, 0.25); align-items: center; gap: 10px; font-size: 0.8rem; color: var(--text-primary); text-align: left;">
+          <span style="font-weight: 700; color: #EF4444;">⚠️ Crash Detected:</span>
+          <span id="client-log-diagnosis-text" style="flex: 1;">No diagnosis available.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: GLOBAL SEARCH SPOTLIGHT (Ctrl + K) -->
+    <div class="version-dialog-overlay" id="global-search-overlay" style="display: none; z-index: 10002;">
+      <div class="version-dialog" style="width: 540px; padding: 0;">
+        <div style="display: flex; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card);">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--text-primary); margin-right: 12px;">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="global-search-input" placeholder="Search worlds, mods, installations, settings..." style="flex: 1; background: transparent; border: none; outline: none; color: var(--text-primary); font-size: 0.92rem;">
+          <span style="font-size: 0.65rem; color: var(--text-muted); background: var(--bg-input); padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border); font-family: var(--font-mono);">ESC</span>
+        </div>
+        <div id="global-search-results" style="max-height: 280px; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 4px; background: var(--bg-canvas); text-align: left;">
+          <div style="padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">Type to search worlds, mods, installations, packs...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: ADD/EDIT MULTIPLAYER SERVER -->
+    <div class="version-dialog-overlay" id="add-server-dialog-overlay" style="display: none;">
+      <div class="version-dialog" style="width: 420px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <h3 class="card-title" id="add-server-dialog-title" style="margin-bottom: 0;">Add Server</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label class="input-label" for="input-add-server-name">Server Name</label>
+          <input type="text" id="input-add-server-name" class="input-field" placeholder="e.g. Hypixel Network">
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label class="input-label" for="input-add-server-ip">Server Address (IP:Port)</label>
+          <input type="text" id="input-add-server-ip" class="input-field" placeholder="e.g. mc.hypixel.net">
+        </div>
+        
+        <div class="form-actions-row">
+          <button class="btn-cancel" id="btn-close-add-server">Cancel</button>
+          <button class="btn-save" id="btn-apply-add-server">Save Server</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: CREATE LOCAL SERVER -->
+    <div class="version-dialog-overlay" id="create-server-dialog-overlay" style="display: none;">
+      <div class="version-dialog" style="width: 440px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <h3 class="card-title" style="margin-bottom: 0;">Create Local Server</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label class="input-label" for="input-create-server-name">Server Instance Name</label>
+          <input type="text" id="input-create-server-name" class="input-field" placeholder="e.g. My_Survival_Server">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label class="input-label" for="select-create-server-software">Server Engine</label>
+            <select id="select-create-server-software" class="input-field">
+              <option value="PaperMC">PaperMC (Recommended)</option>
+              <option value="Vanilla">Vanilla (Official)</option>
+              <option value="Purpur">Purpur (High Perf)</option>
+              <option value="Fabric">Fabric Loader</option>
+            </select>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label class="input-label" for="select-create-server-version">Game Version</label>
+            <select id="select-create-server-version" class="input-field">
+              <!-- Populated dynamically with releases -->
+            </select>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label class="input-label" for="input-create-server-port">Server Port</label>
+            <input type="number" id="input-create-server-port" class="input-field" value="25565">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label class="input-label" for="select-create-server-ram">RAM Allocation</label>
+            <select id="select-create-server-ram" class="input-field">
+              <option value="1024">1024 MB (1 GB)</option>
+              <option value="2048" selected>2048 MB (2 GB)</option>
+              <option value="4096">4096 MB (4 GB)</option>
+              <option value="6144">6144 MB (6 GB)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-actions-row">
+          <button class="btn-cancel" id="btn-close-create-server">Cancel</button>
+          <button class="btn-save" id="btn-apply-create-server">Create Server</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="tauri-bridge.js"></script>
+  <script src="assets/skinview3d.bundle.js"></script>
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>

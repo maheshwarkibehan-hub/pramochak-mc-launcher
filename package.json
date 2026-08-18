@@ -1,0 +1,42 @@
+{
+  "name": "mc-launcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win",
+    "tauri:dev": "npm --prefix tauri-launcher run tauri dev",
+    "tauri:build": "npm --prefix tauri-launcher run tauri build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.18",
+    "minecraft-launcher-core": "^3.18.2"
+  },
+  "build": {
+    "appId": "com.pramochak.mclauncher",
+    "productName": "Pramochak MC Launcher",
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "applogo.ico"
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*"
+    ]
+  }
+}

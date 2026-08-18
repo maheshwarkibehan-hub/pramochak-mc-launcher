@@ -1,0 +1,25 @@
+﻿# Dependencies
+node_modules/
+package-lock.json
+
+# Rust & Tauri Builds
+target/
+src-tauri/target/
+tauri-launcher/src-tauri/target/
+tauri-launcher/dist/
+
+# Electron Output & Logs
+dist/win-unpacked/
+dist/*.blockmap
+*.log
+electron_err.txt
+electron_log.txt
+electron_out.txt
+tauri_run_err.txt
+tauri_run_out.txt
+
+# OS and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

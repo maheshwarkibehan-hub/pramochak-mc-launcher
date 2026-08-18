@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pramochak MC Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="launcher-window">
+    
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+      <div class="brand-section">
+        <!-- Grass Block SVG Icon -->
+        <svg class="brand-logo" viewBox="0 0 64 64" fill="none">
+          <path d="M32 2L6 17v30l26 15 26-15V17L32 2z" fill="#4caf50"/>
+          <path d="M32 2L6 17l26 15 26-15-26-15z" fill="#8bc34a"/>
+          <path d="M6 17v30l26 15V32L6 17z" fill="#795548"/>
+          <path d="M32 32l26-15v30L32 62V32z" fill="#5d4037"/>
+          <path d="M6 17l10 5 16-9 10 5 16-9M6 25l10 5 16-9v12l10 5 16-9" stroke="#388e3c" stroke-width="2"/>
+        </svg>
+        <div class="brand-info">
+          <span class="brand-name">PRAMOCHAK</span>
+          <span class="brand-tag">MC</span>
+        </div>
+      </div>
+
+      <div class="nav-list">
+        <div class="nav-item active" id="nav-home" data-screen="screen-home">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" id="nav-play-tab" data-screen="screen-home">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span>Play</span>
+        </div>
+        <div class="nav-item" id="nav-installations" data-screen="screen-installations">
+          <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.11-.9-2-2-2H4c-1.11 0-2 .89-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+          <span>Installations</span>
+        </div>
+        <div class="nav-item" id="nav-skins" data-screen="screen-skins">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+          <span>Skins</span>
+        </div>
+        <div class="nav-item" id="nav-mods" data-screen="screen-mods">
+          <svg viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.38 0 2.5 1.12 2.5 2.5S4.88 15.8 3.5 15.8H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5s-1.12-2.5-2.5-2.5z"/></svg>
+          <span>Mods</span>
+        </div>
+        <div class="nav-item" id="nav-resources" data-screen="screen-resources">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-2 8h-3v3h-2v-3H8v-2h3V9h2v3h3v2z"/></svg>
+          <span>Resource Packs</span>
+        </div>
+        <div class="nav-item" id="nav-worlds" data-screen="screen-worlds">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <span>Worlds</span>
+        </div>
+        <div class="nav-item" id="nav-servers" data-screen="screen-servers">
+          <svg viewBox="0 0 24 24"><path d="M4 14h16v-2H4v2zm0 4h16v-2H4v2zM4 6v4h16V6H4z"/></svg>
+          <span>Servers</span>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-footer">
+        <div class="nav-item" id="nav-settings" data-screen="screen-settings">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>Settings</span>
+        </div>
+        <div class="nav-item" id="nav-support" data-screen="screen-about">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <span>Support</span>
+        </div>
+        <p class="footer-text">PRAMOCHAK MC<br>v2.0.0 • June 2026</p>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT AREA -->
+    <div class="main-content">
+      
+      <!-- Window Titlebar Controls -->
+      <div class="titlebar">
+        <div class="window-controls">
+          <button class="control-btn minimize" id="btn-minimize" title="Minimize">
+            <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="2" rx="1"/></svg>
+          </button>
+          <button class="control-btn maximize" id="btn-maximize" title="Maximize/Restore">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+          </button>
+          <button class="control-btn close" id="btn-close" title="Close">
+            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Top Profile Card -->
+      <div class="top-header">
+        <div class="profile-card" id="profile-card-btn" title="Edit Profile Details">
+          <img src="assets/steve_avatar.png" class="profile-avatar" id="header-avatar" alt="Avatar">
+          <div class="profile-info">
+            <span class="profile-name" id="header-username">Pramochak_MC</span>
+            <span class="profile-status">Online</span>
+          </div>
+          <!-- Dropdown arrow SVG -->
+          <svg class="profile-arrow" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5H7z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Progress Overlay during downloading/updating -->
+      <div class="progress-overlay" id="progress-overlay">
+        <div class="progress-card" style="width: 520px; padding: 30px; align-items: stretch; gap: 14px;">
+          
+          <div class="progress-header-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px;">
+            <div style="display: flex; flex-direction: column; gap: 4px; overflow: hidden; flex: 1; padding-right: 12px;">
+              <span class="progress-title-label" id="progress-title" style="font-family: var(--font-title); font-size: 1.15rem; font-weight: 800; color: #fff;">Preparing Launcher...</span>
+              <span class="progress-file-label" id="progress-file-label" style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; font-family: monospace;">Resolving files...</span>
+            </div>
+            <!-- Big percentage number -->
+            <span id="progress-pct-label" style="font-family: var(--font-title); font-size: 2.2rem; font-weight: 800; color: var(--accent-green); text-shadow: 0 0 15px var(--accent-green-glow); flex-shrink: 0;">0%</span>
+          </div>
+
+          <div class="progress-bar-container" style="height: 8px; width: 100%; margin-bottom: 10px;">
+            <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+
+          <!-- Download Details Row (Simplified single status line) -->
+          <div style="width: 100%; border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: 4px; display: flex; justify-content: center; align-items: center;">
+            <span id="progress-details-text" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-title), sans-serif; letter-spacing: 0.2px;">Initializing safe download connection...</span>
+          </div>
+
+          <!-- Progress Controls Row -->
+          <div class="progress-controls-row">
+            <button class="btn-progress-pause" id="btn-progress-pause">
+              <svg viewBox="0 0 24 24" id="btn-progress-pause-icon"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              <span id="btn-pause-text">Pause</span>
+            </button>
+            <button class="btn-progress-stop" id="btn-progress-stop">
+              <svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
+              <span>Stop Download</span>
+            </button>
+          </div>
+
+          <div class="progress-console-output" id="progress-console" style="display: none;"></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 1: HOME -->
+      <div class="screen active" id="screen-home">
+        
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <span class="hero-welcome">WELCOME BACK 👋</span>
+          <h1 class="hero-title">Ready to craft<br>your adventure?</h1>
+          <p class="hero-desc">Jump into your favorite worlds and create something legendary.</p>
+          
+          <div class="hero-buttons">
+            <button class="btn-play" id="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>PLAY</span>
+            </button>
+            <button class="btn-outline" id="launch-options-btn">
+              <span>Launch Options</span>
+              <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Info Cards Row -->
+        <div class="info-cards-row">
+          
+          <!-- Card 1: Version Selector -->
+          <div class="info-card" id="card-version" title="Change Minecraft Version">
+            <div class="info-card-left">
+              <div class="info-card-icon-wrapper">
+                <!-- Grass block blocky icon SVG -->
+                <svg class="info-card-icon" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#4caf50"/>
+                  <path d="M12 2L3 7l9 5 9-5-9-5z" fill="#8bc34a"/>
+                  <path d="M3 7v10l9 5V12L3 7z" fill="#795548"/>
+                  <path d="M12 12l9-5v10l-9 5V12z" fill="#5d4037"/>
+                </svg>
+              </div>
+              <div class="info-card-details">
+                <span class="info-card-label">Latest Version</span>
+                <span class="info-card-value" id="selected-version-label">1.21.4</span>
+                <span class="info-card-subvalue">Minecraft Java Edition</span>
+              </div>
+            </div>
+            <!-- Arrow -->
+            <svg class="info-card-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+          </div>
+
+          <!-- Card 2: World Count -->
+          <div class="info-card" id="card-worlds" title="Explore Saves Directory">
+            <div class="info-card-left">
+              <div class="info-card-icon-wrapper">
+                <!-- Portal/World icon SVG -->
+                <svg class="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <div class="info-card-details">
+                <span class="info-card-label">Your Worlds</span>
+                <span class="info-card-value" id="world-count-label">0 worlds</span>
+                <span class="info-card-subvalue">Local saves folder</span>
+              </div>
+            </div>
+            <!-- Arrow -->
+            <svg class="info-card-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+
+          <!-- Card 3: Servers/Friends info -->
+          <div class="info-card" id="card-friends" title="Multiplayer Servers">
+            <div class="info-card-left">
+              <div class="info-card-icon-wrapper">
+                <svg class="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="info-card-details">
+                <span class="info-card-label">Play with Friends</span>
+                <span class="info-card-value">3 online</span>
+                <span class="info-card-subvalue">Join public lobby</span>
+              </div>
+            </div>
+            <!-- Arrow -->
+            <svg class="info-card-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+
+        </div>
+
+        <!-- Recent Play Grid -->
+        <div class="recent-play-section">
+          <div class="recent-play-header">
+            <span class="recent-play-title">Recent Play</span>
+            <a href="#" class="recent-play-all" id="btn-view-all-worlds">
+              <span>View All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/></svg>
+            </a>
+          </div>
+          
+          <div class="recent-play-grid">
+            <!-- Card 1: Survival Kingdom -->
+            <div class="recent-card" data-world="Survival Kingdom" data-ver="1.20.1">
+              <img src="assets/sunset_lake.png" class="recent-card-image" alt="Survival Kingdom">
+              <div class="recent-card-content">
+                <div class="recent-card-info">
+                  <span class="recent-card-name">Survival Kingdom</span>
+                  <span class="recent-card-mode">Survival • 1.20.1</span>
+                </div>
+                <div class="recent-card-play-btn">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Pramochak SMP -->
+            <div class="recent-card" data-world="Pramochak SMP" data-ver="1.20.1">
+              <img src="assets/smp_castle.png" class="recent-card-image" alt="Pramochak SMP">
+              <div class="recent-card-content">
+                <div class="recent-card-info">
+                  <span class="recent-card-name">Pramochak SMP</span>
+                  <span class="recent-card-mode">Survival • 1.20.1</span>
+                </div>
+                <div class="recent-card-play-btn">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Creative World -->
+            <div class="recent-card" data-world="Creative World" data-ver="1.20.1">
+              <img src="assets/cherry_blossom.png" class="recent-card-image" alt="Creative World">
+              <div class="recent-card-content">
+                <div class="recent-card-info">
+                  <span class="recent-card-name">Creative World</span>
+                  <span class="recent-card-mode">Creative • 1.20.1</span>
+                </div>
+                <div class="recent-card-play-btn">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Nether Adventures -->
+            <div class="recent-card" data-world="Nether Adventures" data-ver="1.20.1">
+              <img src="assets/nether_fortress.png" class="recent-card-image" alt="Nether Adventures">
+              <div class="recent-card-content">
+                <div class="recent-card-info">
+                  <span class="recent-card-name">Nether Adventures</span>
+                  <span class="recent-card-mode">Survival • 1.20.1</span>
+                </div>
+                <div class="recent-card-play-btn">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: INSTALLATIONS -->
+      <div class="screen" id="screen-installations">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 0;">Launch Profiles</h2>
+        </div>
+        
+        <!-- Pager Tabs Selector -->
+        <div class="installations-tabs" style="display: flex; width: 100%; align-items: center;">
+          <div class="inst-tab active" id="tab-list-profiles" data-tab="page-list-profiles">
+            <svg viewBox="0 0 24 24"><path d="M4 14h16v-2H4v2zm0 4h16v-2H4v2zM4 6v4h16V6H4z"/></svg>
+            <span>All Installations</span>
+          </div>
+          <div class="inst-tab" id="tab-create-profile" data-tab="page-create-profile">
+            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Create Profile</span>
+          </div>
+          <button class="btn-save" id="btn-import-modpack" style="margin-left: auto; padding: 6px 14px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #48bb78, #38a169); box-shadow: 0 0 10px rgba(72,187,120,0.2); border: none; outline: none; height: 36px; border-radius: 6px; color: white; cursor: pointer; font-weight: 600;">
+            <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: white;"><path d="M5 20h14v-2H5v2zm0-10h4v6h6v-6h4l-7-7-7 7z"/></svg>
+            Import Modpack (.zip / .mrpack)
+          </button>
+        </div>
+
+        <div class="installations-pager-content">
+          <!-- Page 1: List Profiles -->
+          <div class="inst-page active" id="page-list-profiles">
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+              Manage custom configurations. Select any release or snapshot, and apply Fabric or Forge loaders.
+            </p>
+            <div class="installations-list" id="installations-list" style="display: flex; flex-direction: column; gap: 14px; max-height: 380px; overflow-y: auto; padding-right: 5px;">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- Page 2: Create Profile (DETAILED FORM) -->
+          <div class="inst-page" id="page-create-profile">
+            <div class="settings-grid" style="margin-top: 0;">
+              
+              <!-- Card 1: Identity & Icon -->
+              <div class="settings-card">
+                <h3 class="card-title">General Settings</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-name-input">Profile Name</label>
+                  <input type="text" id="profile-name-input" class="input-field" placeholder="e.g. My Modded World" value="New Installation">
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-icon-select">Profile Icon</label>
+                  <select id="profile-icon-select" class="input-field">
+                    <option value="grass">Grass Block</option>
+                    <option value="diamond">Diamond Block</option>
+                    <option value="redstone">Redstone Block</option>
+                    <option value="obsidian">Obsidian Block</option>
+                    <option value="furnace">Furnace Block</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Card 2: Version Configuration -->
+              <div class="settings-card">
+                <h3 class="card-title">Version Configuration</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-version-type">Version Filter</label>
+                  <select id="profile-version-type" class="input-field">
+                    <option value="release">Releases Only</option>
+                    <option value="snapshot">Snapshots Only</option>
+                  </select>
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-version-select">Minecraft Version</label>
+                  <select id="profile-version-select" class="input-field">
+                    <!-- Dynamically populated -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- Card 3: Mod Loader Settings -->
+              <div class="settings-card">
+                <h3 class="card-title">Mod Loader</h3>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-loader-select">Loader Type</label>
+                  <select id="profile-loader-select" class="input-field">
+                    <option value="vanilla">None (Vanilla)</option>
+                    <option value="fabric">Fabric Loader</option>
+                    <option value="forge">Forge Loader</option>
+                  </select>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                  Our launcher automates Fabric loader setups dynamically and queries Forge version lists. Ensure compatible mods are placed in your mods folder.
+                </p>
+              </div>
+
+              <!-- Card 4: RAM & Memory Settings -->
+              <div class="settings-card">
+                <h3 class="card-title">Performance & Advanced</h3>
+                <div class="settings-row">
+                  <label class="input-label">Memory Allocation (RAM)</label>
+                  <input type="range" id="profile-ram-slider" min="1024" max="8192" step="1024" value="4096">
+                  <div class="range-values">
+                    <span>1 GB</span>
+                    <span id="profile-ram-value" style="color: var(--accent-green); font-weight: 700;">4 GB</span>
+                    <span>8 GB</span>
+                  </div>
+                </div>
+                <div class="settings-row">
+                  <label class="input-label" for="profile-java-path">Custom Java Binary (Optional)</label>
+                  <input type="text" id="profile-java-path" class="input-field" placeholder="Default (Auto-downloaded compat JRE)">
+                </div>
+              </div>
+
+            </div>
+
+            <div style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 12px;">
+              <button class="btn-cancel" id="btn-cancel-create-profile">Reset Form</button>
+              <button class="btn-save" id="btn-apply-profile-dialog">Create & Save Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: SETTINGS -->
+      <div class="screen" id="screen-settings">
+        <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 15px;">Settings</h2>
+        <div class="settings-grid">
+          
+          <div class="settings-card">
+            <h3 class="card-title">Profile & Identity</h3>
+            <div class="settings-row">
+              <label class="input-label" for="username">Player Nickname (Offline)</label>
+              <input type="text" id="username" class="input-field" placeholder="Enter player name..." value="Pramochak_MC">
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="version-select">Active Game Version</label>
+              <select id="version-select" class="input-field">
+                <option value="1.21.4">Minecraft 1.21.4</option>
+                <option value="1.21">Minecraft 1.21</option>
+                <option value="1.20.4">Minecraft 1.20.4</option>
+                <option value="1.20.1" selected>Minecraft 1.20.1</option>
+                <option value="1.19.4">Minecraft 1.19.4</option>
+                <option value="1.18.2">Minecraft 1.18.2</option>
+                <option value="1.16.5">Minecraft 1.16.5</option>
+                <option value="1.8.9">Minecraft 1.8.9</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Performance (RAM)</h3>
+            <div class="settings-row">
+              <label class="input-label">Memory Allocation</label>
+              <input type="range" id="ram-slider" min="1024" max="8192" step="1024" value="4096">
+              <div class="range-values">
+                <span>1 GB</span>
+                <span id="ram-value" style="color: var(--accent-green); font-weight: 700;">4 GB</span>
+                <span>8 GB</span>
+              </div>
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="java-path">Custom Java Path (Optional)</label>
+              <input type="text" id="java-path" class="input-field" placeholder="Default (Auto-detected)">
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Launch Resolution</h3>
+            <div class="settings-row">
+              <label class="input-label" for="resolution-w">Width (px)</label>
+              <input type="number" id="resolution-w" class="input-field" value="854">
+            </div>
+            <div class="settings-row">
+              <label class="input-label" for="resolution-h">Height (px)</label>
+              <input type="number" id="resolution-h" class="input-field" value="480">
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="card-title">Security & Storage</h3>
+            <div class="settings-row">
+              <label class="input-label">Launcher Storage Root</label>
+              <input type="text" class="input-field" id="storage-root-label" readonly value="~/.minecraft" style="background: rgba(0,0,0,0.15); color: #718096; border-color: rgba(255,255,255,0.02); cursor: not-allowed;">
+            </div>
+            <div class="settings-row">
+              <label class="input-label">Verification Status</label>
+              <span style="color: #48bb78; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                ✓ HTTPS SECURE CONNECTIONS FORCED
+              </span>
+            </div>
+          </div>
+
+        </div>
+        
+        <div style="margin-top: 24px; display: flex; justify-content: flex-end; gap: 12px;">
+          <button class="btn-cancel" id="cancel-settings-btn">Cancel</button>
+          <button class="btn-save" id="save-settings-btn">Save Configurations</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: SKINS -->
+      <div class="screen" id="screen-skins" style="overflow: hidden;">
+        <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 12px; flex-shrink: 0;">Skins & Capes Manager</h2>
+        
+        <div class="skins-split-layout">
+          
+          <!-- Left Column: Interactive 3D Viewer -->
+          <div class="skins-left-viewer card-blur">
+            <h3 class="card-title" style="margin-bottom: 10px;">3D Preview</h3>
+            
+            <div class="skin-viewer-container">
+              <div id="skin-viewer-mount"></div>
+            </div>
+            
+            <!-- Floating Viewer Controls -->
+            <div class="skin-viewer-controls">
+              <div class="viewer-control-row">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="skin-viewer-rotate" checked>
+                  <span class="checkmark"></span>
+                  Auto-Rotate
+                </label>
+                <label class="checkbox-container">
+                  <input type="checkbox" id="skin-viewer-cape" checked>
+                  <span class="checkmark"></span>
+                  Show Cape
+                </label>
+              </div>
+              <div class="viewer-control-row">
+                <select id="skin-viewer-animation" class="input-field" style="margin: 0; padding: 4px 8px; font-size: 0.75rem; height: 28px;">
+                  <option value="none">Walk Pose (Static)</option>
+                  <option value="idle">Idle Breath</option>
+                  <option value="walk" selected>Walking</option>
+                  <option value="run">Running</option>
+                  <option value="fly">Flying</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column: Tabs and Settings -->
+          <div class="skins-right-panel card-blur">
+            <!-- Tabs Menu -->
+            <div class="installations-tabs" style="margin-bottom: 12px; border-bottom: 1px solid var(--border-light); padding-bottom: 0; flex-shrink: 0;">
+              <div class="inst-tab active" id="tab-skin-wardrobe" data-tab="page-skin-wardrobe">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                <span>Wardrobe</span>
+              </div>
+              <div class="inst-tab" id="tab-skin-creator" data-tab="page-skin-creator">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                <span>Creator</span>
+              </div>
+              <div class="inst-tab" id="tab-skin-library" data-tab="page-skin-library">
+                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                <span>Library</span>
+              </div>
+            </div>
+            
+            <div class="installations-pager-content" style="flex: 1; overflow-y: auto;">
+              
+              <!-- Page 1: Wardrobe -->
+              <div class="inst-page active" id="page-skin-wardrobe">
+                <div class="wardrobe-upload-area">
+                  <div class="upload-box" id="upload-skin-box">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                    <span class="upload-title">Upload Custom Skin</span>
+                    <span class="upload-desc">Drag PNG file here or click to browse (64x64 or 64x32)</span>
+                    <input type="file" id="skin-file-input" accept="image/png" style="display: none;">
+                  </div>
+                  
+                  <div class="upload-box" id="upload-cape-box">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7V7h10v6z"/></svg>
+                    <span class="upload-title">Upload Custom Cape (Optional)</span>
+                    <span class="upload-desc">Drag PNG file here or click to browse (64x32 or 22x17)</span>
+                    <input type="file" id="cape-file-input" accept="image/png" style="display: none;">
+                  </div>
+                </div>
+                
+                <div class="skin-model-type-select">
+                  <span class="input-label" style="margin-bottom: 6px; display: block;">Player Model Style</span>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input type="radio" name="model-type" value="classic" checked>
+                      <span class="radio-custom"></span>
+                      Classic (4px arms - Steve)
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="model-type" value="slim">
+                      <span class="radio-custom"></span>
+                      Slim (3px arms - Alex)
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="apply-skin-banner">
+                  <div class="banner-icon">💡</div>
+                  <div class="banner-text">
+                    <strong>Offline Skin Rendering Support</strong>
+                    <p>To render this skin and cape in offline mode, make sure to install the <strong>CustomSkinLoader</strong> mod from the <strong>Mods</strong> tab. Pramochak MC will auto-inject the textures into the mod folder structure!</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 15px; justify-content: flex-end;">
+                  <button class="btn-cancel" id="btn-reset-skin">Clear Changes</button>
+                  <button class="btn-save" id="btn-save-skin">Save Skin & Cape</button>
+                </div>
+              </div>
+              
+              <!-- Page 2: Skin Creator -->
+              <div class="inst-page" id="page-skin-creator" style="display: none;">
+                <div class="skin-editor-layout">
+                  <!-- Editor Canvas Container -->
+                  <div class="editor-canvas-wrapper">
+                    <div class="canvas-scroll-container">
+                      <canvas id="skin-editor-canvas" width="64" height="64"></canvas>
+                    </div>
+                    
+                    <div class="editor-canvas-actions">
+                      <label for="editor-zoom" class="input-label" style="font-size: 0.75rem; margin: 0; white-space: nowrap;">Zoom:</label>
+                      <input type="range" id="editor-zoom" min="2" max="12" step="1" value="6" style="flex: 1; height: 4px; margin: 0 10px;">
+                      <button class="btn-cancel" id="btn-editor-grid-toggle" style="padding: 4px 8px; font-size: 0.75rem; height: 26px;">Grid: ON</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Editor Tools Sidebar -->
+                  <div class="editor-tools-sidebar">
+                    <span class="input-label" style="font-size: 0.75rem; margin-bottom: 4px;">Tools</span>
+                    <div class="editor-tool-buttons">
+                      <button class="tool-btn active" id="tool-pencil" title="Pencil (Draw)">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+                      </button>
+                      <button class="tool-btn" id="tool-eraser" title="Eraser">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.24 7.76l5.66 5.66-9.9 9.9H6.34l-3.54-3.54 13.44-13.44M19.07 4.93l2.83 2.83-3.72 3.72-2.83-2.83 3.72-3.72z"/></svg>
+                      </button>
+                      <button class="tool-btn" id="tool-bucket" title="Bucket Fill">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                      </button>
+                      <button class="tool-btn" id="tool-picker" title="Color Picker">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                      </button>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 0.75rem; margin-top: 10px; margin-bottom: 4px;">Active Color</span>
+                    <input type="color" id="editor-color-picker" value="#4caf50" class="editor-color-input">
+                    
+                    <span class="input-label" style="font-size: 0.75rem; margin-top: 10px; margin-bottom: 4px;">Swatches</span>
+                    <div class="editor-color-palette" id="editor-palette">
+                      <!-- Populated in JS with Minecraft block themes -->
+                    </div>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 15px; justify-content: flex-end; align-items: center;">
+                  <button class="btn-cancel" id="btn-editor-import" title="Load active skin from wardrobe into editor">Load Wardrobe Skin</button>
+                  <button class="btn-cancel" id="btn-editor-download" title="Export skin PNG to Downloads folder">Export PNG</button>
+                  <button class="btn-save" id="btn-editor-apply" title="Apply this edited skin directly to wardrobe">Apply to Wardrobe</button>
+                </div>
+              </div>
+              
+              <!-- Page 3: Library & Search -->
+              <div class="inst-page" id="page-skin-library" style="display: none;">
+                <!-- Mojang Stealer -->
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; align-items: center;">
+                  <input type="text" id="skin-search-username" class="input-field" placeholder="Enter premium username to steal skin (e.g. Dream, Notch)..." style="flex: 1; margin: 0; height: 38px;">
+                  <button class="btn-save" id="btn-skin-search" style="height: 38px; padding: 0 16px; margin: 0; display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; border-radius: 10px;">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <span>Import Skin</span>
+                  </button>
+                </div>
+                
+                <h4 class="card-title" style="font-size: 0.85rem; border-bottom: 1px solid var(--border-light); padding-bottom: 6px; margin-bottom: 10px; color: var(--text-muted);">Featured Skins Library</h4>
+                <div class="featured-skins-grid" id="featured-skins-grid">
+                  <!-- Populated in JS -->
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN: MODS -->
+      <div class="screen" id="screen-mods">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; width: 100%; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+            <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 0;">Mod Manager</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -2px;">Search, install, and manage mods from Modrinth securely.</p>
+            
+            <!-- Profile Selector for Mods -->
+            <div class="mods-profile-select-container">
+              <label for="mods-profile-select" class="mods-profile-label">Active Profile:</label>
+              <select id="mods-profile-select">
+                <!-- Populated dynamically with Profiles list -->
+              </select>
+              <span id="mods-profile-loader-badge" class="loader-badge vanilla">Vanilla</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mods Pager Tabs -->
+        <div class="installations-tabs" style="margin-bottom: 16px; flex-shrink: 0; display: flex; border-bottom: 1px solid var(--border-light); padding-bottom: 0;">
+          <div class="inst-tab active" id="tab-mods-search" data-tab="page-mods-search" style="padding: 10px 20px; border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); transition: all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Browse Modrinth</span>
+          </div>
+          <div class="inst-tab" id="tab-mods-installed" data-tab="page-mods-installed" style="padding: 10px 20px; border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); transition: all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Installed Mods (<span id="installed-mods-count">0</span>)</span>
+          </div>
+        </div>
+
+        <!-- Mods Pages Content -->
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; height: auto;">
+          
+          <!-- Page 1: Search and Browse -->
+          <div class="inst-page active" id="page-mods-search" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0;">
+              <input type="text" id="mods-search-input" class="input-field" placeholder="Search mods from Modrinth (e.g. Sodium, Iris, FerriteCore)..." style="flex: 1; margin: 0; background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.08); height: 38px;">
+              <button class="btn-save" id="btn-mods-search" style="height: 38px; padding: 0 16px; margin: 0; display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; border-radius: 10px;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <span>Search</span>
+              </button>
+            </div>
+
+            <!-- Mod list grid -->
+            <div class="mods-grid" id="mods-search-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; overflow-y: auto; flex: 1; padding-right: 5px;">
+              <div style="grid-column: span 2; text-align: center; color: var(--text-muted); padding: 40px 0; font-size: 0.9rem;">
+                Select a profile above to load compatible mods.
+              </div>
+            </div>
+          </div>
+
+          <!-- Page 2: Installed list -->
+          <div class="inst-page" id="page-mods-installed" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div class="mods-installed-list" id="mods-installed-list" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; padding-right: 5px;">
+              <div style="text-align: center; color: var(--text-muted); padding: 40px 0; font-size: 0.9rem;">
+                No mods installed in this profile. Go to the "Browse Modrinth" tab to install mods!
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCREEN: WORLDS MANAGER -->
+      <div class="screen" id="screen-worlds" style="overflow: hidden;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; width: 100%; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+            <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 0;">Worlds Manager</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -2px;">Explore, quick-launch, back up, or delete your singleplayer worlds.</p>
+            
+            <div class="mods-profile-select-container" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+              <label for="worlds-profile-select" class="mods-profile-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Active Profile saves:</label>
+              <select id="worlds-profile-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-main); font-size: 0.8rem; border-radius: 6px; padding: 4px 8px; outline: none; cursor: pointer; transition: all 0.2s;">
+                <!-- Populated dynamically -->
+              </select>
+              <button class="btn-save" id="btn-open-saves-folder" style="height: 28px; padding: 0 10px; margin: 0 0 0 auto; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: linear-gradient(135deg, #4299e1, #3182ce); border: none; cursor: pointer; color: white; transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: white;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                <span>Open Saves Folder</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0; margin-bottom: 16px;">
+          <input type="text" id="worlds-search-input" class="input-field" placeholder="Search singleplayer worlds by name..." style="flex: 1; margin: 0; background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.08); height: 38px;">
+        </div>
+
+        <div class="worlds-scroll-container" style="flex: 1; overflow-y: auto; padding-right: 5px; width: 100%;">
+          <div id="worlds-empty-state" style="display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; color: var(--text-muted); gap: 16px;">
+            <svg viewBox="0 0 24 24" style="width: 64px; height: 64px; fill: var(--text-muted); opacity: 0.3;">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #fff;">No Worlds Found</div>
+            <p style="font-size: 0.85rem; max-width: 380px; line-height: 1.5; color: var(--text-muted);">Create a singleplayer world inside the game or add world folders to the saves folder to see them here.</p>
+          </div>
+
+          <div class="worlds-grid" id="worlds-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; width: 100%;">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN: RESOURCE PACKS MANAGER -->
+      <div class="screen" id="screen-resources" style="overflow: hidden;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; width: 100%; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+            <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 0;">Resource Packs</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -2px;">Customize your game's graphics. Search and install packs from Modrinth or import local files.</p>
+            
+            <div class="mods-profile-select-container" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+              <label for="resources-profile-select" class="mods-profile-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Active Profile packs:</label>
+              <select id="resources-profile-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-main); font-size: 0.8rem; border-radius: 6px; padding: 4px 8px; outline: none; cursor: pointer; transition: all 0.2s;">
+                <!-- Populated dynamically -->
+              </select>
+              
+              <button class="btn-save" id="btn-import-resourcepack" style="height: 28px; padding: 0 10px; margin: 0 0 0 auto; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: linear-gradient(135deg, #48bb78, #38a169); border: none; cursor: pointer; color: white; transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: white;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Import local pack (.zip)</span>
+              </button>
+              
+              <button class="btn-save" id="btn-open-resources-folder" style="height: 28px; padding: 0 10px; margin: 0 0 0 8px; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: linear-gradient(135deg, #4299e1, #3182ce); border: none; cursor: pointer; color: white; transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: white;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                <span>Open Folder</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs Menu -->
+        <div class="installations-tabs" style="margin-bottom: 16px; flex-shrink: 0; display: flex; border-bottom: 1px solid var(--border-light); padding-bottom: 0;">
+          <div class="inst-tab active" id="tab-resources-search" style="padding: 10px 20px; border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); transition: all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Browse Modrinth</span>
+          </div>
+          <div class="inst-tab" id="tab-resources-installed" style="padding: 10px 20px; border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); transition: all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Installed Packs (<span id="installed-resources-count">0</span>)</span>
+          </div>
+        </div>
+
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; height: auto;">
+          <!-- Page 1: Online Search -->
+          <div class="inst-page active" id="page-resources-search" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div style="display: flex; gap: 10px; width: 100%; align-items: center; flex-shrink: 0;">
+              <input type="text" id="resources-search-input" class="input-field" placeholder="Search texture/resource packs from Modrinth (e.g. Faithful, Bare Bones, Fresh Animations)..." style="flex: 1; margin: 0; background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.08); height: 38px;">
+              <button class="btn-save" id="btn-resources-search" style="height: 38px; padding: 0 16px; margin: 0; display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; border-radius: 10px;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <span>Search</span>
+              </button>
+            </div>
+
+            <!-- Online search list grid -->
+            <div class="mods-grid" id="resources-search-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; overflow-y: auto; flex: 1; padding-right: 5px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Page 2: Installed list -->
+          <div class="inst-page" id="page-resources-installed" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div class="mods-installed-list" id="resources-installed-list" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex: 1; padding-right: 5px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN: SERVERS MANAGER -->
+      <div class="screen" id="screen-servers" style="overflow: hidden;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; width: 100%; flex-shrink: 0;">
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+            <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 0;">Multiplayer & Hosting</h2>
+            <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-top: -2px;">Explore online multiplayer servers or create and run your own local Minecraft server instance.</p>
+          </div>
+        </div>
+
+        <!-- Tabs Menu -->
+        <div class="installations-tabs">
+          <div class="inst-tab active" id="tab-servers-multiplayer">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>Multiplayer List</span>
+          </div>
+          <div class="inst-tab" id="tab-servers-local">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span>Host Local Server</span>
+          </div>
+        </div>
+
+        <div class="installations-pager-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; height: auto;">
+          <!-- Page 1: Multiplayer List -->
+          <div class="inst-page active" id="page-servers-multiplayer" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden;">
+            <div class="mods-profile-select-container" style="display: flex; align-items: center; gap: 10px; margin-top: 5px; flex-shrink: 0;">
+              <label for="servers-profile-select" class="mods-profile-label" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Instance profile:</label>
+              <select id="servers-profile-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); color: var(--text-main); font-size: 0.8rem; border-radius: 6px; padding: 4px 8px; outline: none; cursor: pointer; transition: all 0.2s;">
+                <!-- Populated dynamically -->
+              </select>
+              
+              <button class="btn-save" id="btn-add-server" style="height: 28px; padding: 0 10px; margin: 0 0 0 auto; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: linear-gradient(135deg, #4299e1, #3182ce); border: none; cursor: pointer; color: white; transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: white;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Add Server</span>
+              </button>
+            </div>
+
+            <!-- Server grid -->
+            <div class="mods-grid" id="multiplayer-servers-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; overflow-y: auto; flex: 1; padding-right: 5px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Page 2: Host Local Server -->
+          <div class="inst-page" id="page-servers-local" style="display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: hidden; display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; width: 100%;">
+              <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7);">Launch a local Minecraft Java server instance from your PC with custom plugins/mods.</span>
+              <button class="btn-save" id="btn-create-local-server" style="height: 28px; padding: 0 10px; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 700; border-radius: 6px; background: linear-gradient(135deg, #48bb78, #38a169); border: none; cursor: pointer; color: white; transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: white;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Create Local Server</span>
+              </button>
+            </div>
+
+            <!-- Grid container for local servers -->
+            <div id="local-servers-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; overflow-y: auto; max-height: 180px; flex-shrink: 0;">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Real-time Console Area (Hidden by default until a server is started/active) -->
+            <div id="local-server-console-panel" style="display: none; flex: 1; flex-direction: column; background: rgba(10,11,16,0.6); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; background: rgba(0,0,0,0.3); border-bottom: 1px solid var(--border-light); flex-shrink: 0;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="pulse-dot green" id="console-status-dot" style="width:8px; height:8px;"></span>
+                  <span id="console-server-title" style="font-size: 0.8rem; font-weight: 700; color: #fff;">Console - server</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span id="console-server-meta" style="font-size: 0.7rem; color: var(--text-muted);">PaperMC 1.21.4</span>
+                  <button class="btn-save" id="btn-console-clear" style="height: 20px; font-size: 0.65rem; padding: 0 6px; border-radius: 4px; background: rgba(255,255,255,0.05); border: none; cursor: pointer; color: var(--text-muted); transition: all 0.2s;">Clear</button>
+                </div>
+              </div>
+              
+              <!-- Console Logs output (Terminal view) -->
+              <div id="server-console-logs" style="flex: 1; overflow-y: auto; padding: 12px; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.75rem; color: #e2e8f0; line-height: 1.4; background: rgba(5,6,9,0.7); display: flex; flex-direction: column; gap: 4px; height: 180px;">
+                <!-- Logs stream here -->
+              </div>
+
+              <!-- Console input line -->
+              <div style="display: flex; border-top: 1px solid var(--border-light); background: rgba(0,0,0,0.2); padding: 6px 12px; align-items: center; flex-shrink: 0;">
+                <span style="color: #38b2ac; font-weight: bold; margin-right: 8px; font-family: monospace; font-size: 0.8rem;">&gt;</span>
+                <input type="text" id="server-console-input" placeholder="Type a server command (e.g., op username, stop, gamemode creative)..." style="flex: 1; background: transparent; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.8rem; margin: 0; padding: 4px 0;">
+                <button id="btn-send-server-command" style="background: transparent; border: none; cursor: pointer; color: #38b2ac; display: flex; align-items: center; padding: 4px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIALOG MODAL: ADD/EDIT MULTIPLAYER SERVER -->
+      <div class="version-dialog-overlay" id="add-server-dialog-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); justify-content: center; align-items: center; z-index: 10000; transition: all 0.2s;">
+        <div class="version-dialog card-blur" style="width: 380px; padding: 25px; border-radius: 16px; border: 1px solid var(--border-light); background: rgba(26,27,38,0.75); box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 16px;">
+          <h3 class="card-title" id="add-server-dialog-title" style="font-size: 1.1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; margin: 0;">Add Server</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Server Name</label>
+            <input type="text" id="input-add-server-name" placeholder="e.g. Hypixel Network" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 0.8rem; outline: none;">
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Server Address (IP:Port)</label>
+            <input type="text" id="input-add-server-ip" placeholder="e.g. mc.hypixel.net" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 0.8rem; outline: none;">
+          </div>
+          
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 5px;">
+            <button class="btn-cancel" id="btn-close-add-server" style="background: rgba(255,255,255,0.05); color: #a0aec0; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s;">Cancel</button>
+            <button class="btn-save" id="btn-apply-add-server" style="background: linear-gradient(135deg, #4299e1, #3182ce); border: none; color: #fff; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.8rem; transition: all 0.2s;">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIALOG MODAL: CREATE LOCAL SERVER -->
+      <div class="version-dialog-overlay" id="create-server-dialog-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); justify-content: center; align-items: center; z-index: 10000; transition: all 0.2s;">
+        <div class="version-dialog card-blur" style="width: 400px; padding: 25px; border-radius: 16px; border: 1px solid var(--border-light); background: rgba(26,27,38,0.75); box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 16px;">
+          <h3 class="card-title" style="font-size: 1.1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; margin: 0;">Create Local Server</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Server Folder Name</label>
+            <input type="text" id="input-create-server-name" placeholder="e.g. My_Survival_Server" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 0.8rem; outline: none;">
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Engine Software</label>
+              <select id="select-create-server-software" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; color: #fff; font-size: 0.8rem; outline: none;">
+                <option value="PaperMC">PaperMC (Recommended)</option>
+                <option value="Vanilla">Vanilla (Official)</option>
+                <option value="Purpur">Purpur (High Perf)</option>
+                <option value="Fabric">Fabric Loader</option>
+              </select>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Game Version</label>
+              <select id="select-create-server-version" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; color: #fff; font-size: 0.8rem; outline: none;">
+                <!-- Populated dynamically with releases -->
+              </select>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">Server Port</label>
+              <input type="number" id="input-create-server-port" value="25565" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 0.8rem; outline: none;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); font-weight: 600;">RAM Allocation (MB)</label>
+              <select id="select-create-server-ram" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px; color: #fff; font-size: 0.8rem; outline: none;">
+                <option value="1024">1024 MB (1 GB)</option>
+                <option value="2048" selected>2048 MB (2 GB)</option>
+                <option value="4096">4096 MB (4 GB)</option>
+                <option value="6144">6144 MB (6 GB)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 5px;">
+            <button class="btn-cancel" id="btn-close-create-server" style="background: rgba(255,255,255,0.05); color: #a0aec0; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s;">Cancel</button>
+            <button class="btn-save" id="btn-apply-create-server" style="background: linear-gradient(135deg, #48bb78, #38a169); border: none; color: #fff; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.8rem; transition: all 0.2s;">Create</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: ABOUT -->
+      <div class="screen" id="screen-about">
+        <div class="about-card">
+          <!-- Grass block SVG icon -->
+          <svg class="about-logo-img" viewBox="0 0 64 64" fill="none">
+            <path d="M32 2L6 17v30l26 15 26-15V17L32 2z" fill="#4caf50"/>
+            <path d="M32 2L6 17l26 15 26-15-26-15z" fill="#8bc34a"/>
+            <path d="M6 17v30l26 15V32L6 17z" fill="#795548"/>
+            <path d="M32 32l26-15v30L32 62V32z" fill="#5d4037"/>
+          </svg>
+          <h2 class="hero-title" style="font-size: 2.2rem; margin-top: 10px;">Pramochak MC</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Version 2.0.0 (June 2026 Release)</p>
+          <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px;">
+            A high-performance Minecraft client manager built on top of Node.js and Electron, featuring sandboxed environments, automatic cryptographic file verification, and secure HTTPS pipelines.
+          </p>
+          <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <span style="background: rgba(56, 161, 105, 0.15); border: 1px solid var(--accent-green); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; color: #fff;">
+              ✓ Safe Downloads Verified
+            </span>
+            <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; color: #fff;">
+              🔒 Sandbox Mode
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dropdown Modal Overlay for Version Select (Prompted by version card / launch options) -->
+    <!-- Dropdown Modal Overlay for Version Select (Prompted by version card / launch options) -->
+    <div class="version-dropdown-overlay" id="version-dialog-overlay">
+      <div class="version-dialog">
+        <h3 class="card-title">Select Active Profile</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -8px;">Choose which launch profile to prepare.</p>
+        
+        <div class="settings-row">
+          <label class="input-label" for="modal-version-select">Active Launch Profile</label>
+          <select id="modal-version-select" class="input-field">
+            <!-- Dynamically populated with Profiles list -->
+          </select>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+          <button class="btn-cancel" id="btn-close-version-dialog">Close</button>
+          <button class="btn-save" id="btn-apply-version-dialog">Apply Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dropdown Modal Overlay for Username Change -->
+    <div class="version-dropdown-overlay" id="username-dialog-overlay" style="display: none;">
+      <div class="version-dialog">
+        <h3 class="card-title">Edit Player Nickname</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -8px;">Enter a custom nickname for offline multiplayer and skin rendering.</p>
+        
+        <div class="settings-row">
+          <label class="input-label" for="modal-username-input">Player Nickname</label>
+          <input type="text" id="modal-username-input" class="input-field" placeholder="Enter nickname..." value="Pramochak_MC">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+          <button class="btn-cancel" id="btn-close-username-dialog">Cancel</button>
+          <button class="btn-save" id="btn-apply-username-dialog">Save Name</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modpack Installation Progress Overlay -->
+    <div class="version-dropdown-overlay" id="modpack-progress-overlay" style="display: none; z-index: 10000;">
+      <div class="version-dialog" style="width: 480px; background: #1a1a2e; border: 1px solid var(--border-light); border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center;">
+        <h3 class="card-title" id="modpack-progress-title" style="margin-bottom: 8px;">Installing Modpack</h3>
+        <p id="modpack-progress-status" style="font-size: 0.85rem; color: var(--text-muted); margin-top: -8px;">Preparing installation...</p>
+        
+        <div class="progress-bar-container" style="height: 8px; width: 100%; margin: 15px 0; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.02);">
+          <div class="progress-bar-fill" id="modpack-progress-fill" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent-green), #48bb78); box-shadow: 0 0 8px var(--accent-green); transition: width 0.2s ease;"></div>
+        </div>
+        
+        <div style="font-family: monospace; font-size: 0.75rem; background: rgba(0,0,0,0.25); border: 1px solid var(--border-light); padding: 10px; border-radius: 6px; max-height: 120px; overflow-y: auto; margin-bottom: 15px; text-align: left; white-space: pre-wrap; color: #a0aec0;" id="modpack-progress-log">Waiting...</div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="btn-cancel" id="btn-close-modpack-install" style="display: none; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border-light); background: transparent; color: white; cursor: pointer;">Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="assets/skinview3d.bundle.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
