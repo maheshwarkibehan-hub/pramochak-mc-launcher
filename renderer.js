@@ -1,3 +1,17 @@
+/**
+ * ============================================================================
+ *  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (RENDERER ENGINE)
+ * ============================================================================
+ *  @author    Maheshwar Hari Tripathi
+ *  @copyright Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+ *  @license   MIT License
+ *  @website   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+ *  @watermark PRAMOCHAK-UI-SECURE-ID: MHT-MC-RENDERER-2026
+ * ============================================================================
+ */
+
+console.log('[PRAMOCHAK-UI] Initialized | Author: Maheshwar Hari Tripathi | (c) 2026 | https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher');
+
 // Navigation DOM Elements
 const navItems = document.querySelectorAll('.nav-item');
 const screens = {

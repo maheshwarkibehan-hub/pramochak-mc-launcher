@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # ⚡ Pramochak MC Launcher
 ### *The Fastest, Lightweight, Next-Generation Minecraft Studio Launcher*
@@ -86,9 +86,9 @@ Download the precompiled portable binary [	auri-launcher.exe](tauri-launcher/src
 
 ### Steps
 
-`ash
+```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/pramochak-mc-launcher.git
+git clone https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher.git
 cd pramochak-mc-launcher
 
 # 2. Install dependencies
@@ -100,15 +100,16 @@ npm run tauri:dev
 
 # 4. Build Production Windows PC Installer (.exe & .msi)
 npm run tauri:build
-`
+```
 
 ---
 
 ## 🏷️ GitHub Topics & Keywords
-minecraft • minecraft-launcher • 	auri • ust • electron • abric • orge • quilt • minecraft-modpack • modrinth • curseforge • minecraft-skins • webgl • game-launcher • desktop-app • gaming • minecraft-client • optifine • cross-platform • ramer-motion
+`minecraft` • `minecraft-launcher` • `tauri` • `rust` • `electron` • `fabric` • `forge` • `quilt` • `minecraft-modpack` • `modrinth` • `curseforge` • `minecraft-skins` • `webgl` • `game-launcher` • `desktop-app` • `gaming` • `minecraft-client` • `optifine` • `cross-platform` • `framer-motion`
 
 ---
 
 ## 📄 License & Credits
-Designed and Developed with ❤️ by **Maheshwar**  
-Licensed under the **MIT License**. Copyright (c) 2026 **Maheshwar**. All rights reserved.
+Designed and Developed with ❤️ by **[Maheshwar Hari Tripathi](https://github.com/maheshwarkibehan-hub)**  
+Licensed under the **MIT License**. Copyright (c) 2026 **Maheshwar Hari Tripathi**. All rights reserved.
+Repository: [https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher](https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher)

@@ -1,3 +1,12 @@
+// ============================================================================
+//  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (TAURI V2 RUST KERNEL LIB)
+//  Author:    Maheshwar Hari Tripathi
+//  Copyright: Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+//  License:   MIT License
+//  Website:   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+//  Watermark: PRAMOCHAK-RUST-LIB-SECURE-ID: MHT-MC-RUST-2026
+// ============================================================================
+
 use std::process::{Command, Stdio, ChildStdin};
 use std::sync::{Mutex, Arc};
 use std::io::{BufReader, BufRead, Write};

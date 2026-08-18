@@ -27,6 +27,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "copyright": "Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.",
     "externalBin": [
       "bin/backend-worker"
     ],

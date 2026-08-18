@@ -1,7 +1,13 @@
 {
-  "name": "mc-launcher",
+  "name": "pramochak-mc-launcher",
   "version": "1.0.0",
-  "description": "",
+  "description": "The fastest, lightweight, next-generation Minecraft Studio Launcher built with Tauri v2, Rust & Electron by Maheshwar Hari Tripathi",
+  "author": "Maheshwar Hari Tripathi (https://github.com/maheshwarkibehan-hub)",
+  "homepage": "https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher.git"
+  },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -10,9 +16,26 @@
     "tauri:build": "npm --prefix tauri-launcher run tauri build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "minecraft",
+    "minecraft-launcher",
+    "tauri",
+    "rust",
+    "electron",
+    "fabric",
+    "forge",
+    "quilt",
+    "minecraft-modpack",
+    "modrinth",
+    "curseforge",
+    "minecraft-skins",
+    "webgl",
+    "game-launcher",
+    "desktop-app",
+    "gaming",
+    "minecraft-client"
+  ],
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
     "electron": "^42.4.0",

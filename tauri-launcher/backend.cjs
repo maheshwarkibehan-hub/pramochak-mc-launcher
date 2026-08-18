@@ -1,3 +1,15 @@
+/**
+ * ============================================================================
+ *  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (TAURI RPC BACKEND WORKER)
+ * ============================================================================
+ *  @author    Maheshwar Hari Tripathi
+ *  @copyright Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+ *  @license   MIT License
+ *  @website   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+ *  @watermark PRAMOCHAK-SIDECAR-SECURE-ID: MHT-MC-SIDECAR-2026
+ * ============================================================================
+ */
+
 const path = require('path');
 const fs = require('fs');
 const readline = require('readline');

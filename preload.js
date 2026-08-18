@@ -1,3 +1,15 @@
+/**
+ * ============================================================================
+ *  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (PRELOAD BRIDGE)
+ * ============================================================================
+ *  @author    Maheshwar Hari Tripathi
+ *  @copyright Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+ *  @license   MIT License
+ *  @website   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+ *  @watermark PRAMOCHAK-PRELOAD-SECURE-ID: MHT-MC-PRELOAD-2026
+ * ============================================================================
+ */
+
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('api', {

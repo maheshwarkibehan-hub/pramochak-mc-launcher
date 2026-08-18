@@ -1,3 +1,15 @@
+/**
+ * ============================================================================
+ *  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (TAURI V2 WEBVIEW BRIDGE)
+ * ============================================================================
+ *  @author    Maheshwar Hari Tripathi
+ *  @copyright Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+ *  @license   MIT License
+ *  @website   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+ *  @watermark PRAMOCHAK-TAURI-BRIDGE-SECURE-ID: MHT-MC-TAURI-2026
+ * ============================================================================
+ */
+
 (function() {
   console.log('[TAURI-BRIDGE] Initializing Tauri WebView bridge...');
   if (typeof window !== 'undefined' && window.__TAURI__) {

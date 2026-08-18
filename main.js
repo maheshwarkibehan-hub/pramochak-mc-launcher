@@ -1,3 +1,17 @@
+/**
+ * ============================================================================
+ *  PRAMOCHAK MINECRAFT STUDIO LAUNCHER (KERNEL ENGINE)
+ * ============================================================================
+ *  @author    Maheshwar Hari Tripathi
+ *  @copyright Copyright (c) 2026 Maheshwar Hari Tripathi. All rights reserved.
+ *  @license   MIT License
+ *  @website   https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher
+ *  @watermark PRAMOCHAK-KERNEL-SECURE-ID: MHT-MC-LAUNCHER-2026
+ * ============================================================================
+ */
+
+console.log('[PRAMOCHAK-ENGINE] Developed by Maheshwar Hari Tripathi | (c) 2026 | https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher');
+
 const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron');
 const path = require('path');
 const os = require('os');

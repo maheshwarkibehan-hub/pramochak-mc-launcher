@@ -1,7 +1,11 @@
 {
-  "name": "tauri-launcher",
+  "name": "pramochak-mc-launcher-tauri",
+  "version": "1.0.0",
+  "description": "Pramochak MC Launcher - Tauri v2 + Rust Frontend by Maheshwar Hari Tripathi",
+  "author": "Maheshwar Hari Tripathi (https://github.com/maheshwarkibehan-hub)",
+  "homepage": "https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher",
+  "license": "MIT",
   "private": true,
-  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

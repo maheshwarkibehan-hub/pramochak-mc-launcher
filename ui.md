@@ -1,4 +1,5 @@
 # Pramochak MC Launcher — Minimalist Design System & Architecture Specification
+*Created & Engineered by **Maheshwar Hari Tripathi** · Copyright (c) 2026 · [GitHub Repository](https://github.com/maheshwarkibehan-hub/pramochak-mc-launcher)*
 *Inspired by Apple HIG, Linear.app, Raycast, Vercel (Geist), and Teenage Engineering*
 
 ---
